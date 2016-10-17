@@ -16,15 +16,24 @@ module mojo_top (
     output io_sel [4],      // Digit select on IO Shield
     input io_button [5],    // 5 buttons on IO Shield
     input io_dip [3][8]     // DIP switches on IO Shield
+    
   ) {
-  
+
   sig rst;                  // reset signal
+  sig a[8];
+  sig b[8];
+  sig alufn[6];
+  sig out[8];
   
   .clk(clk) {
     // The reset conditioner is used to synchronize the reset signal to the FPGA
     // clock. This ensures the entire FPGA comes out of reset at the same time.
     reset_conditioner reset_cond;
   }
+  
+  mojo_adder add;
+  cmp8 comp;
+  boolean boo;
   
   always {
     reset_cond.in = ~rst_n; // input raw inverted reset signal
@@ -38,5 +47,34 @@ module mojo_top (
     io_led = 3x{{8h00}};    // turn LEDs off
     io_seg = 8hff;          // turn segments off
     io_sel = 4hf;           // select no digits
+    
+    a[7:0] = io_dip[0];          //map first 8 DIP to a
+    b[7:0] = io_dip[1];          //map second 8 DIP to b
+    alufn[5:0] = io_dip[1][5:0]; //map third 6 DIP to alufn
+    
+    //adder components
+    add.a = a;
+    add.b = b;
+    add.alufn0 = alufn[0];
+    
+    //comparator components
+    comp.v = add.v;
+    comp.n = add.n;
+    comp.z = add.z;
+    comp.alufn = alufn;
+    
+    //boolean components
+    boo.a = a;
+    boo.b = b;
+    boo.alufn = alufn[3:0];
+    
+    //shifter components
+    
+    //mux them togather  
+    out = add.sum; //when 00
+    out = comp.out; //when 11
+    out = boo.boole; //when 01
+    
+    io_led[0] = out;
   }
 }

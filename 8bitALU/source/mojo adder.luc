@@ -1,0 +1,24 @@
+module mojo_adder (
+    	input a[8],
+	    input b[8],
+	    input alufn0,
+	    output sum[8],
+    output z,
+    output n,
+    output v
+ ) 
+	{
+		always {
+		case(alufn0) {
+		1: sum = a - b;
+	
+		0: sum = a + b;
+  
+   default: sum = 8b00000000;
+		}
+    
+    z = 1;
+    n = 1;
+    v = 1;
+		}
+	}

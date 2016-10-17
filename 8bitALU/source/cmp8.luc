@@ -1,7 +1,5 @@
 module cmp8 (
-    input clk,  // clock
-    input rst,  // reset
-    input alufn[2],
+    input alufn[8],
     input z,
     input n,
     input v,
@@ -10,7 +8,7 @@ module cmp8 (
 
   always {
   out[7:1] = 0;
-    case (alufn){
+    case (alufn[1:0]){
       01: out[0] = z;
       10: out[0] = n^v;
       11: out[0] = z + (n^v); //commentingg
