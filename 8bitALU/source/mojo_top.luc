@@ -78,13 +78,13 @@ module mojo_top (
     //mux them togather  
     case(alufn[5:4]){
     b00:
-    out = add.sum; //when 00
+    out = add.sum; //adder
     b11:
-    out = comp.out; //when 11
+    out = comp.out; //comparator
     b01:
-    io_led[0] = boo.boole; //when 01
+    io_led[0] = boo.boole; //boolean
     b10:
-    out = shift.shift; //when 10
+    out = shift.shift; //shifter
     }
     
     io_led[2][0] = add.n;
