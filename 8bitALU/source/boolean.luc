@@ -11,13 +11,13 @@ module boolean (
   always {
     for (i=0; i<8; i++){ //for 8-bits   
      
-      if (a ==0 && b == 0){
+      if (a[i] ==0 && b[i] == 0){
       boole[i] = alufn[0];
       }
-      else if (a == 0 && b == 1){
+      else if (a[i] == 0 && b[i] == 1){
       boole[i] = alufn[1];
       }
-      else if (a==1 && b ==0){
+      else if (a[i]==1 && b[i] ==0){
       boole[i]= alufn[2];
       }
       else 
