@@ -85,6 +85,17 @@ module mojo_top_0 (
     .boole(M_boo_boole)
   );
   
+  wire [8-1:0] M_shift_shift;
+  reg [8-1:0] M_shift_a;
+  reg [3-1:0] M_shift_b;
+  reg [2-1:0] M_shift_alufn;
+  shifter_5 shift (
+    .a(M_shift_a),
+    .b(M_shift_b),
+    .alufn(M_shift_alufn),
+    .shift(M_shift_shift)
+  );
+  
   always @* begin
     M_reset_cond_in = ~rst_n;
     rst = M_reset_cond_out;
@@ -108,7 +119,10 @@ module mojo_top_0 (
     M_boo_a = a;
     M_boo_b = b;
     M_boo_alufn = alufn[0+3-:4];
-    out = M_comp_out;
+    M_shift_a = a;
+    M_shift_b = b[0+2-:3];
+    M_shift_alufn = alufn[0+1-:2];
+    out = M_shift_shift;
     io_led[16+0+0-:1] = M_add_n;
     io_led[16+1+0-:1] = M_add_v;
     io_led[16+2+0-:1] = M_add_z;

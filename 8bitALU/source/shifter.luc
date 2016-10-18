@@ -1,12 +1,12 @@
 module shifter(
-  input a[8] 
-  input b[3]
-  input alufn[1:0]
+  input a[8] ,
+  input b[3],
+  input alufn[2],
   output shift[8]
   )
-  
+  {
   always {
-    case(alufn[1:0]) {
+    case(alufn) {
     2b00: shift = a << b[2:0];
     
     2b01: shift = a >> b[2:0];

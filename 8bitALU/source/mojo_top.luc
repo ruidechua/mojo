@@ -34,6 +34,7 @@ module mojo_top (
   mojo_adder add;
   cmp8 comp;
   boolean boo;
+  shifter shift;
   
   always {
     reset_cond.in = ~rst_n; // input raw inverted reset signal
@@ -69,11 +70,16 @@ module mojo_top (
     boo.alufn = alufn[3:0];
     
     //shifter components
+    shift.a = a;
+    shift.b = b[2:0];
+    shift.alufn = alufn[1:0];
+    
     
     //mux them togather  
     //out = add.sum; //when 00
-    out = comp.out; //when 11
+    //out = comp.out; //when 11
     //io_led[0] = boo.boole; //when 01
+    out = shift.shift;
     
     io_led[2][0] = add.n;
     io_led[2][1] = add.v;
