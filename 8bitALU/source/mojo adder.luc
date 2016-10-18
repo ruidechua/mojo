@@ -32,6 +32,6 @@ module mojo_adder (
     }
     
     
-    v = a[7]&(b[7]^alufn0)&(sum[7]~) | (A[7]~)&(b[7]^alufn0)&s[7];
+    v = a[7]&(b[7]^alufn0)&(sum[7]~) | (a[7]~)&(b[7]^alufn0)&(sum[7]);
 		}
 	}
