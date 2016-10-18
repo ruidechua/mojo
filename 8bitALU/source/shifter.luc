@@ -1,0 +1,19 @@
+module shifter(
+  input a[8] 
+  input b[3]
+  input alufn[1:0]
+  output shift[8]
+  )
+  
+  always {
+    case(alufn[1:0]) {
+    2b00: shift = a << b[2:0];
+    
+    2b01: shift = a >> b[2:0];
+    
+    2b11: shift = $signed(a) >>> b[2:0];
+    
+    default: shift = a;
+    }
+  }
+}
