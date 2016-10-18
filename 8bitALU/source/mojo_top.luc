@@ -76,10 +76,16 @@ module mojo_top (
     
     
     //mux them togather  
-    //out = add.sum; //when 00
-    //out = comp.out; //when 11
-    //io_led[0] = boo.boole; //when 01
-    out = shift.shift; //when 11
+    case(alufn[5:4]){
+    b00:
+    out = add.sum; //when 00
+    b11:
+    out = comp.out; //when 11
+    b01:
+    io_led[0] = boo.boole; //when 01
+    b10:
+    out = shift.shift; //when 10
+    }
     
     io_led[2][0] = add.n;
     io_led[2][1] = add.v;
