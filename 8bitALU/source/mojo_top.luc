@@ -86,7 +86,7 @@ module mojo_top (
     b10:
     out = shift.shift; //shifter
     default: 
-    out = add.sum
+    out = add.sum;
     }
     
     io_led[2][0] = add.n;
