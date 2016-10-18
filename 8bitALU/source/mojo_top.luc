@@ -79,7 +79,7 @@ module mojo_top (
     //out = add.sum; //when 00
     //out = comp.out; //when 11
     //io_led[0] = boo.boole; //when 01
-    out = shift.shift;
+    out = shift.shift; //when 11
     
     io_led[2][0] = add.n;
     io_led[2][1] = add.v;
