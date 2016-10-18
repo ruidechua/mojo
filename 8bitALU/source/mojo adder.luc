@@ -8,17 +8,32 @@ module mojo_adder (
     output v
  ) 
 	{
+  sig summ[8];
 		always {
 		case(alufn0) {
-		1: sum = a - b;
+		1: summ = a - b;
 	
-		0: sum = a + b;
+		0: summ = a + b;
   
-   default: sum = 8b00000000;
+   default: summ = 8b00000000;
 		}
     
+    if (summ==0) {
     z = 1;
+    }
+    else {
+    z = 0;
+    }
+    
+    if (summ[7] == 1) {
     n = 1;
-    v = 1;
+    }
+    else {
+    n = 0;
+    }
+    
+    
+    v = a[7]&(b[7]^alufn0)&(~summ[7]) | (~a[7])&(b[7]~^alufn0)&(summ[7]);
+    sum = summ;
 		}
 	}

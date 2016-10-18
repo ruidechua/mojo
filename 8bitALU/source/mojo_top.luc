@@ -48,9 +48,9 @@ module mojo_top (
     io_seg = 8hff;          // turn segments off
     io_sel = 4hf;           // select no digits
     
-    a[7:0] = io_dip[0];          //map first 8 DIP to a
-    b[7:0] = io_dip[1];          //map second 8 DIP to b
-    alufn[5:0] = io_dip[1][5:0]; //map third 6 DIP to alufn
+    a[7:0] = io_dip[0][7:0];          //map first 8 DIP to a
+    b[7:0] = io_dip[1][7:0];          //map second 8 DIP to b
+    alufn[5:0] = io_dip[2][5:0]; //map third 6 DIP to alufn
     
     //adder components
     add.a = a;
@@ -71,9 +71,13 @@ module mojo_top (
     //shifter components
     
     //mux them togather  
-    out = add.sum; //when 00
+    //out = add.sum; //when 00
     out = comp.out; //when 11
-    out = boo.boole; //when 01
+    //io_led[0] = boo.boole; //when 01
+    
+    io_led[2][0] = add.n;
+    io_led[2][1] = add.v;
+    io_led[2][2] = add.z;
     
     io_led[0] = out;
   }
