@@ -18,14 +18,22 @@ module mojo_adder (
    default: summ = 8b00000000;
 		}
     
+<<<<<<< HEAD
     if (summ==0) {
+=======
+    if (sum==0) {
+>>>>>>> origin/master
     z = 1;
     }
     else {
     z = 0;
     }
     
+<<<<<<< HEAD
     if (summ[7] == 1) {
+=======
+    if (sum[7] == 1) {
+>>>>>>> origin/master
     n = 1;
     }
     else {
@@ -33,7 +41,11 @@ module mojo_adder (
     }
     
     
+<<<<<<< HEAD
     v = a[7]&(b[7]^alufn0)&(~summ[7]) | (~a[7])&(b[7]~^alufn0)&(summ[7]);
     sum = summ;
+=======
+    v = a[7]&(b[7]^alufn0)&(sum[7]~) | (a[7]~)&(b[7]^alufn0)&(sum[7]);
+>>>>>>> origin/master
 		}
 	}
