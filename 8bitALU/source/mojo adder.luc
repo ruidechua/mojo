@@ -17,8 +17,21 @@ module mojo_adder (
    default: sum = 8b00000000;
 		}
     
+    if (sum==0) {
     z = 1;
+    }
+    else {
+    z = 0;
+    }
+    
+    if (sum[7] == 1) {
     n = 1;
-    v = 1;
+    }
+    else {
+    n = 0;
+    }
+    
+    
+    v = a[7]&(b[7]^alufn0)&(sum[7]~) | (A[7]~)&(b[7]^alufn0)&s[7];
 		}
 	}
