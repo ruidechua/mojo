@@ -122,10 +122,26 @@ module mojo_top_0 (
     M_shift_a = a;
     M_shift_b = b[0+2-:3];
     M_shift_alufn = alufn[0+1-:2];
-    out = M_shift_shift;
+    
+    case (alufn[4+1-:2])
+      2'h0: begin
+        out = M_add_sum;
+      end
+      2'h3: begin
+        out = M_comp_out;
+      end
+      2'h1: begin
+        io_led[0+7-:8] = M_boo_boole;
+      end
+      2'h2: begin
+        out = M_shift_shift;
+      end
+      default: begin
+        out = M_add_sum;
+      end
+    endcase
     io_led[16+0+0-:1] = M_add_n;
     io_led[16+1+0-:1] = M_add_v;
     io_led[16+2+0-:1] = M_add_z;
-    io_led[0+7-:8] = out;
   end
 endmodule

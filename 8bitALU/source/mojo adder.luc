@@ -32,7 +32,7 @@ module mojo_adder (
     n = 0;
     }
     
-    v = a[7]&(b[7]^alufn0)&(~summ[7]) | (~a[7])&(b[7]~^alufn0)&(summ[7]);
+    v = a[7] & (b[7]^alufn0) & (~summ[7]) | (~a[7]) & (~(b[7]^alufn0)) & (summ[7]); //^ - XOR, ~ - NOT
     sum = summ;
 		}
 	}
