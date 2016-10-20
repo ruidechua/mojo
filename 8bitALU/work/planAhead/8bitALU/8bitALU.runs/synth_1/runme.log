@@ -35,9 +35,8 @@ Elaborating module <cmp8_3>.
 Elaborating module <boolean_4>.
 
 Elaborating module <shifter_5>.
-WARNING:HDLCompiler:413 - "C:/Users/Chua/Documents/mojo/8bitALU/work/planAhead/8bitALU/8bitALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 124: Result of 6-bit expression is truncated to fit in 2-bit target.
-WARNING:HDLCompiler:1127 - "C:/Users/Chua/Documents/mojo/8bitALU/work/planAhead/8bitALU/8bitALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 99: Assignment to rst ignored, since the identifier is never used
-WARNING:Xst:2972 - "C:/Users/Chua/Documents/mojo/8bitALU/work/planAhead/8bitALU/8bitALU.srcs/sources_1/imports/verilog/mojo_top_0.v" line 41. All outputs of instance <reset_cond> of block <reset_conditioner_1> are unconnected in block <mojo_top_0>. Underlying logic will be removed.
+WARNING:HDLCompiler:1127 - "C:/Users/Chua/Documents/mojo/8bitALU/work/planAhead/8bitALU/8bitALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 101: Assignment to rst ignored, since the identifier is never used
+WARNING:Xst:2972 - "C:/Users/Chua/Documents/mojo/8bitALU/work/planAhead/8bitALU/8bitALU.srcs/sources_1/imports/verilog/mojo_top_0.v" line 43. All outputs of instance <reset_cond> of block <reset_conditioner_1> are unconnected in block <mojo_top_0>. Underlying logic will be removed.
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -46,23 +45,22 @@ WARNING:Xst:2972 - "C:/Users/Chua/Documents/mojo/8bitALU/work/planAhead/8bitALU/
 Synthesizing Unit <mojo_top_0>.
     Related source file is "C:/Users/Chua/Documents/mojo/8bitALU/work/planAhead/8bitALU/8bitALU.srcs/sources_1/imports/verilog/mojo_top_0.v".
 WARNING:Xst:647 - Input <io_button> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <io_dip<23:22>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <cclk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <spi_ss> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <spi_mosi> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <spi_sck> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <avr_tx> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <avr_rx_busy> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-INFO:Xst:3210 - "C:/Users/Chua/Documents/mojo/8bitALU/work/planAhead/8bitALU/8bitALU.srcs/sources_1/imports/verilog/mojo_top_0.v" line 41: Output port <out> of the instance <reset_cond> is unconnected or connected to loadless signal.
-    Found 8-bit 4-to-1 multiplexer for signal <io_led<7:0>> created at line 126.
-    Found 1-bit tristate buffer for signal <spi_miso> created at line 99
-    Found 1-bit tristate buffer for signal <spi_channel<3>> created at line 99
-    Found 1-bit tristate buffer for signal <spi_channel<2>> created at line 99
-    Found 1-bit tristate buffer for signal <spi_channel<1>> created at line 99
-    Found 1-bit tristate buffer for signal <spi_channel<0>> created at line 99
-    Found 1-bit tristate buffer for signal <avr_rx> created at line 99
+INFO:Xst:3210 - "C:/Users/Chua/Documents/mojo/8bitALU/work/planAhead/8bitALU/8bitALU.srcs/sources_1/imports/verilog/mojo_top_0.v" line 43: Output port <out> of the instance <reset_cond> is unconnected or connected to loadless signal.
+    Found 8-bit 4-to-1 multiplexer for signal <n0025[7:0]> created at line 128.
+    Found 1-bit tristate buffer for signal <spi_miso> created at line 101
+    Found 1-bit tristate buffer for signal <spi_channel<3>> created at line 101
+    Found 1-bit tristate buffer for signal <spi_channel<2>> created at line 101
+    Found 1-bit tristate buffer for signal <spi_channel<1>> created at line 101
+    Found 1-bit tristate buffer for signal <spi_channel<0>> created at line 101
+    Found 1-bit tristate buffer for signal <avr_rx> created at line 101
     Summary:
-	inferred   1 Multiplexer(s).
+	inferred   3 Multiplexer(s).
 	inferred   6 Tristate(s).
 Unit <mojo_top_0> synthesized.
 
@@ -93,10 +91,11 @@ Unit <boolean_4> synthesized.
 
 Synthesizing Unit <shifter_5>.
     Related source file is "C:/Users/Chua/Documents/mojo/8bitALU/work/planAhead/8bitALU/8bitALU.srcs/sources_1/imports/verilog/shifter_5.v".
+WARNING:Xst:647 - Input <alufn<5:3>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
     Found 8-bit shifter logical left for signal <a[7]_b[2]_shift_left_0_OUT> created at line 20
     Found 8-bit shifter logical right for signal <a[7]_b[2]_shift_right_1_OUT> created at line 23
     Found 8-bit shifter arithmetic right for signal <a[7]_b[2]_shift_right_2_OUT> created at line 26
-    Found 8-bit 4-to-1 multiplexer for signal <shift> created at line 18.
+    Found 8-bit 7-to-1 multiplexer for signal <shift> created at line 18.
     Summary:
 	inferred   1 Multiplexer(s).
 	inferred   3 Combinational logic shifter(s).
@@ -108,9 +107,10 @@ HDL Synthesis Report
 Macro Statistics
 # Adders/Subtractors                                   : 1
  8-bit addsub                                          : 1
-# Multiplexers                                         : 27
- 1-bit 2-to-1 multiplexer                              : 24
- 8-bit 4-to-1 multiplexer                              : 3
+# Multiplexers                                         : 29
+ 1-bit 2-to-1 multiplexer                              : 26
+ 8-bit 4-to-1 multiplexer                              : 2
+ 8-bit 7-to-1 multiplexer                              : 1
 # Logic shifters                                       : 3
  8-bit shifter arithmetic right                        : 1
  8-bit shifter logical left                            : 1
@@ -133,9 +133,10 @@ Advanced HDL Synthesis Report
 Macro Statistics
 # Adders/Subtractors                                   : 1
  8-bit addsub                                          : 1
-# Multiplexers                                         : 27
- 1-bit 2-to-1 multiplexer                              : 24
- 8-bit 4-to-1 multiplexer                              : 3
+# Multiplexers                                         : 29
+ 1-bit 2-to-1 multiplexer                              : 26
+ 8-bit 4-to-1 multiplexer                              : 2
+ 8-bit 7-to-1 multiplexer                              : 1
 # Logic shifters                                       : 3
  8-bit shifter arithmetic right                        : 1
  8-bit shifter logical left                            : 1
@@ -153,7 +154,7 @@ Optimizing unit <mojo_top_0> ...
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 0) on block mojo_top_0, actual ratio is 1.
+Found area constraint ratio of 100 (+ 0) on block mojo_top_0, actual ratio is 2.
 
 Final Macro Processing ...
 
@@ -193,6 +194,6 @@ Speed Grade: -2
    Minimum period: No path found
    Minimum input arrival time before clock: No path found
    Maximum output required time after clock: No path found
-   Maximum combinational path delay: 11.749ns
+   Maximum combinational path delay: 11.500ns
 
 =========================================================================

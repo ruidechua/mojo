@@ -36,6 +36,8 @@ module mojo_top_0 (
   
   reg [7:0] out;
   
+  reg [7:0] actual_out;
+  
   wire [1-1:0] M_reset_cond_out;
   reg [1-1:0] M_reset_cond_in;
   reset_conditioner_1 reset_cond (
@@ -88,7 +90,7 @@ module mojo_top_0 (
   wire [8-1:0] M_shift_shift;
   reg [8-1:0] M_shift_a;
   reg [3-1:0] M_shift_b;
-  reg [2-1:0] M_shift_alufn;
+  reg [6-1:0] M_shift_alufn;
   shifter_5 shift (
     .a(M_shift_a),
     .b(M_shift_b),
@@ -137,12 +139,20 @@ module mojo_top_0 (
         out = M_shift_shift;
       end
       default: begin
-        out = M_add_sum;
+        out = 8'h00;
       end
     endcase
     io_led[16+0+0-:1] = M_add_n;
     io_led[16+1+0-:1] = M_add_v;
     io_led[16+2+0-:1] = M_add_z;
     io_led[0+7-:8] = out;
+    actual_out = out;
+    if (io_dip[16+6+0-:1] == 1'h1) begin
+      actual_out[1+0-:1] = 1'h1;
+    end
+    if (io_dip[16+7+0-:1] == 1'h1) begin
+      actual_out[4+0-:1] = 1'h0;
+    end
+    io_led[8+7-:8] = actual_out;
   end
 endmodule

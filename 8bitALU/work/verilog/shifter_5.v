@@ -7,7 +7,7 @@
 module shifter_5 (
     input [7:0] a,
     input [2:0] b,
-    input [1:0] alufn,
+    input [5:0] alufn,
     output reg [7:0] shift
   );
   
@@ -15,15 +15,23 @@ module shifter_5 (
   
   always @* begin
     
-    case (alufn)
-      2'h0: begin
+    case (alufn[0+2-:3])
+      3'h0: begin
         shift = a << b[0+2-:3];
       end
-      2'h1: begin
+      3'h1: begin
         shift = a >> b[0+2-:3];
       end
-      2'h3: begin
+      3'h3: begin
         shift = $signed(a) >>> b[0+2-:3];
+      end
+      3'h6: begin
+        shift = a << 1'h1;
+        shift[0+0-:1] = a[7+0-:1];
+      end
+      3'h7: begin
+        shift = a >> 1'h1;
+        shift[7+0-:1] = a[0+0-:1];
       end
       default: begin
         shift = a;
