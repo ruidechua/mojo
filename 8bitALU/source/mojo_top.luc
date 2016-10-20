@@ -90,9 +90,10 @@ module mojo_top (
     out = 8b00000000;
     }
     
-    io_led[2][0] = add.n;
-    io_led[2][1] = add.v;
-    io_led[2][2] = add.z;
+    //tests for check outputs for z, v and n
+    //io_led[2][0] = add.n;
+    //io_led[2][1] = add.v;
+    //io_led[2][2] = add.z;
     
     io_led[0] = out; //final output LED answer for a and b inputs
     
