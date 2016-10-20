@@ -2,6 +2,7 @@
 <project name="8bitALU" board="Mojo V3" language="Lucid">
   <files>
     <src>boolean.luc</src>
+    <src>bit_checker.luc</src>
     <src>cmp8.luc</src>
     <src>shifter.luc</src>
     <src>mojo adder.luc</src>

@@ -36,6 +36,7 @@ module mojo_top (
   cmp8 comp;
   boolean boo;
   shifter shift;
+  bit_checker check;
   
   always {
     reset_cond.in = ~rst_n; // input raw inverted reset signal
@@ -74,7 +75,6 @@ module mojo_top (
     shift.a = a;
     shift.b = b[2:0];
     shift.alufn = alufn;
-    
     
     //mux them togather  
     case(alufn[5:4]){
@@ -119,6 +119,11 @@ module mojo_top (
       }
     }
     io_led[1] = actual_out;
+    
+    //checker components
+    check.out = out;
+    check.actual_out = actual_out;
+    io_led[2] = check.io_led;
     
   }
 }
