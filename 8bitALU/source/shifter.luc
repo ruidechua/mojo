@@ -1,19 +1,30 @@
 module shifter(
   input a[8] ,
   input b[3],
-  input alufn[2],
-  output shift[8]
+  input alufn[6],
+  output shift[8],
+  output rot[8]
   )
   {
   always {
-    case(alufn) {
-    2b00: shift = a << b[2:0];
+    case(alufn[3:0]) {
+    2b0000: shift = a << b[2:0];    //shift a left by b number of bits
     
-    2b01: shift = a >> b[2:0];
+    2b0001: shift = a >> b[2:0];   //shift a right by b number of bits
     
-    2b11: shift = $signed(a) >>> b[2:0];
+    2b0011: shift = $signed(a) >>> b[2:0];    //shift a right by b number of bits with sign extension
     
     default: shift = a;
+    
+    2b0100: //rotate left
+      rot = a<<1;       //set rot as a shifted left by 1 bit
+      rot[0] = a[7];    //replace the least significant bit of rot with most significant bit of input a 
+      
+    2b1100: //rotate right
+      rot = a>>1;       //set rot as a shifted right by 1 bit
+      rot[7] = a[0];    //replace the most significant bit of rot with least significant bit of input a 
+    
     }
   }
 }
+
