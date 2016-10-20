@@ -5,7 +5,7 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:/Users/Chua/Documents/mojo/8bitALU/work/planAhead/8bitALU/8bitALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 101: Assignment to <arg fmt="%s" index="1">rst</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:/Users/Chua/Documents/mojo/8bitALU/work/planAhead/8bitALU/8bitALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 110: Assignment to <arg fmt="%s" index="1">rst</arg> ignored, since the identifier is never used
 </msg>
 
 <msg type="warning" file="Xst" num="2972" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/Chua/Documents/mojo/8bitALU/work/planAhead/8bitALU/8bitALU.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%d" index="2">43</arg>. All outputs of instance &lt;<arg fmt="%s" index="3">reset_cond</arg>&gt; of block &lt;<arg fmt="%s" index="4">reset_conditioner_1</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="5">mojo_top_0</arg>&gt;. Underlying logic will be removed.

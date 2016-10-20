@@ -3,4 +3,5 @@ verilog work "C:/Users/Chua/Documents/mojo/8bitALU/work/planAhead/8bitALU/8bitAL
 verilog work "C:/Users/Chua/Documents/mojo/8bitALU/work/planAhead/8bitALU/8bitALU.srcs/sources_1/imports/verilog/mojo adder_2.v"
 verilog work "C:/Users/Chua/Documents/mojo/8bitALU/work/planAhead/8bitALU/8bitALU.srcs/sources_1/imports/verilog/cmp8_3.v"
 verilog work "C:/Users/Chua/Documents/mojo/8bitALU/work/planAhead/8bitALU/8bitALU.srcs/sources_1/imports/verilog/boolean_4.v"
+verilog work "C:/Users/Chua/Documents/mojo/8bitALU/work/planAhead/8bitALU/8bitALU.srcs/sources_1/imports/verilog/bit_checker_6.v"
 verilog work "C:/Users/Chua/Documents/mojo/8bitALU/work/planAhead/8bitALU/8bitALU.srcs/sources_1/imports/verilog/mojo_top_0.v"

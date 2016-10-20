@@ -9,7 +9,7 @@ module bit_checker (
   
   io_led = 8b00000000;
   for (i=0; i < 8 ; i++){
-    if (out[i] == actual_out[i]){
+    if (out[i] != actual_out[i]){
     io_led[i] = 1;
   }
 }

@@ -98,6 +98,15 @@ module mojo_top_0 (
     .shift(M_shift_shift)
   );
   
+  wire [8-1:0] M_check_io_led;
+  reg [8-1:0] M_check_out;
+  reg [8-1:0] M_check_actual_out;
+  bit_checker_6 check (
+    .out(M_check_out),
+    .actual_out(M_check_actual_out),
+    .io_led(M_check_io_led)
+  );
+  
   always @* begin
     M_reset_cond_in = ~rst_n;
     rst = M_reset_cond_out;
@@ -171,5 +180,8 @@ module mojo_top_0 (
       endcase
     end
     io_led[8+7-:8] = actual_out;
+    M_check_out = out;
+    M_check_actual_out = actual_out;
+    io_led[16+7-:8] = M_check_io_led;
   end
 endmodule
