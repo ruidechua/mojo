@@ -23,7 +23,8 @@ module mojo_top (
   sig a[8];
   sig b[8];
   sig alufn[6];
-  sig out[8];
+  sig out[8];               //theoretical output
+  sig actual_out[8];        //actual output
   
   .clk(clk) {
     // The reset conditioner is used to synchronize the reset signal to the FPGA
@@ -93,6 +94,51 @@ module mojo_top (
     io_led[2][1] = add.v;
     io_led[2][2] = add.z;
     
-    io_led[0] = out;
+    io_led[0] = out; //final output LED answer for a and b inputs
+    
+    //modifier circuit option#1
+    //alters value coming out of boolean and comparator
+    if (io_dip[2][7]==1){
+        case(alufn[5:4]){
+          b00:
+          actual_out = add.sum; //adder
+          b11:
+          actual_out = comp.out; //comparator
+          b01:
+          actual_out = boo.boole + 8; //boolean value modified
+          b10:
+          actual_out = shift.shift; //shifter
+          default: 
+          actual_out = add.sum;
+      }
+    }
+      if (io_dip[2][6]==1){
+        case(alufn[5:4]){
+          b00:
+          actual_out = add.sum; //adder
+          b11:
+          actual_out = comp.out + 1; //comparator value modified
+          b01:
+          actual_out = boo.boole; //boolean
+          b10:
+          actual_out = shift.shift; //shifter
+          default: 
+          actual_out = add.sum;
+      } 
+    }
+    io_led[1] = actual_out;
+    
+    //modifier circuit option#2
+    //alters led value on bit 2 and bit 5
+    out[7:0] = actual_out[7:0]; //maps theoretical output (out) with the modified output (actual_out)
+    
+    if (io_dip[2][6]==1){
+      actual_out[1] = ~out[1]; //bit 2 altered when switch[2][6] is on
+    }
+    if (io_dip[2][7]==1){
+      actual_out[4] = ~out[4]; //bit 5 altered when switch[2][7] is on
+    }
+    
+    
   }
 }
