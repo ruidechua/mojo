@@ -5,7 +5,7 @@
 */
 
 module cmp8_3 (
-    input [7:0] alufn,
+    input [5:0] alufn,
     input z,
     input n,
     input v,

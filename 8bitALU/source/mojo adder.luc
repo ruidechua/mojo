@@ -1,7 +1,7 @@
 module mojo_adder (
     	input a[8],
 	    input b[8],
-	    input alufn0,
+	    input alufn[6],
 	    output sum[8],
     output z,
     output n,
@@ -10,7 +10,7 @@ module mojo_adder (
 	{
   sig summ[8];
 		always {
-		case(alufn0) {
+		case(alufn[0]) {
 		1: summ = a - b;
 	
 		0: summ = a + b;
@@ -30,7 +30,7 @@ module mojo_adder (
     //if(summ > 255) v = 1;
     //else v = 0;
     
-    v = (a[7] & (b[7]^alufn0) & (~summ[7])) | ((~a[7]) & (~(b[7]^alufn0)) & (summ[7])); //^ - XOR, ~ - NOT
+    v = (a[7] & (b[7]^alufn[0]) & (~summ[7])) | ((~a[7]) & (~(b[7]^alufn[0])) & (summ[7])); //^ - XOR, ~ - NOT
     sum = summ;
 		}
 	}

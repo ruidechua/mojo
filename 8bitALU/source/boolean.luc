@@ -1,5 +1,5 @@
 module boolean (
-    input alufn[4],
+    input alufn[6],
     input a[8],  
     input b[8],  
     output boole[8]

@@ -50,11 +50,11 @@ module mojo_top_0 (
   wire [1-1:0] M_add_v;
   reg [8-1:0] M_add_a;
   reg [8-1:0] M_add_b;
-  reg [1-1:0] M_add_alufn0;
+  reg [6-1:0] M_add_alufn;
   mojo_adder_2 add (
     .a(M_add_a),
     .b(M_add_b),
-    .alufn0(M_add_alufn0),
+    .alufn(M_add_alufn),
     .sum(M_add_sum),
     .z(M_add_z),
     .n(M_add_n),
@@ -62,7 +62,7 @@ module mojo_top_0 (
   );
   
   wire [8-1:0] M_comp_out;
-  reg [8-1:0] M_comp_alufn;
+  reg [6-1:0] M_comp_alufn;
   reg [1-1:0] M_comp_z;
   reg [1-1:0] M_comp_n;
   reg [1-1:0] M_comp_v;
@@ -75,7 +75,7 @@ module mojo_top_0 (
   );
   
   wire [8-1:0] M_boo_boole;
-  reg [4-1:0] M_boo_alufn;
+  reg [6-1:0] M_boo_alufn;
   reg [8-1:0] M_boo_a;
   reg [8-1:0] M_boo_b;
   boolean_4 boo (
@@ -111,17 +111,17 @@ module mojo_top_0 (
     alufn[0+5-:6] = io_dip[16+0+5-:6];
     M_add_a = a;
     M_add_b = b;
-    M_add_alufn0 = alufn[0+0-:1];
+    M_add_alufn = alufn;
     M_comp_v = M_add_v;
     M_comp_n = M_add_n;
     M_comp_z = M_add_z;
     M_comp_alufn = alufn;
     M_boo_a = a;
     M_boo_b = b;
-    M_boo_alufn = alufn[0+3-:4];
+    M_boo_alufn = alufn;
     M_shift_a = a;
     M_shift_b = b[0+2-:3];
-    M_shift_alufn = alufn[0+1-:2];
+    M_shift_alufn = alufn;
     
     case (alufn[4+1-:2])
       2'h0: begin

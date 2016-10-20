@@ -4,7 +4,7 @@
   (keywordMap (keywordLevel 0))
   (status
     (written
-      (timestamp 2016 10 20 13 43 3)
+      (timestamp 2016 10 20 14 44 28)
       (program "Xilinx ngc2edif" (version "P.20131013"))
       (author "Xilinx. Inc ")
       (comment "This EDIF netlist is to be used within supported synthesis tools")
@@ -263,15 +263,14 @@
         (view view_1
           (viewType NETLIST)
           (interface
-            (port alufn0
-              (direction INPUT)
-            )
             (port v
               (direction OUTPUT)
             )
             (port (array (rename a "a<7:0>") 8)
               (direction INPUT))
             (port (array (rename b "b<7:0>") 8)
+              (direction INPUT))
+            (port (array (rename alufn "alufn<0:0>") 1)
               (direction INPUT))
             (port (array (rename sum "sum<7:0>") 8)
               (direction OUTPUT))
@@ -396,9 +395,9 @@
                 (portRef I1 (instanceRef Maddsub_summ_lut_0__))
               )
             )
-            (net alufn0
+            (net (rename alufn_0_ "alufn<0>")
               (joined
-                (portRef alufn0)
+                (portRef (member alufn 0))
                 (portRef CI (instanceRef Maddsub_summ_cy_0__))
                 (portRef CI (instanceRef Maddsub_summ_xor_0__))
                 (portRef I2 (instanceRef Maddsub_summ_lut_0__))
@@ -1910,7 +1909,7 @@
                 (portRef O (instanceRef io_dip_16_IBUF))
                 (portRef I0 (instanceRef Mmux_io_led_7_0_28_SW0))
                 (portRef I3 (instanceRef Mmux_io_led_7_0_76_SW0))
-                (portRef alufn0 (instanceRef add))
+                (portRef (member alufn 0) (instanceRef add))
               )
             )
             (net (rename Mmux_io_led_7_0_21 "Mmux_io_led<7:0>21")

@@ -4,7 +4,7 @@
   (keywordmap (keywordlevel 0))
 (status
  (written
-  (timeStamp 2016 10 20 13 43 07)
+  (timeStamp 2016 10 20 14 44 33)
   (program "PlanAhead" (version "14.7"))
   (comment "Built on 'Fri Sep 27 19:29:51 MDT 2013'")
   (comment "Built by 'xbuild'")
@@ -151,10 +151,10 @@
    (cell mojo_adder_2 (celltype GENERIC)
      (view view_1 (viewtype NETLIST)
        (interface 
-        (port alufn0 (direction INPUT))
         (port v (direction OUTPUT))
         (port (array (rename a "a[7:0]") 8) (direction INPUT))
         (port (array (rename b "b[7:0]") 8) (direction INPUT))
+        (port (rename alufn_0_ "alufn[0]") (direction INPUT))
         (port (array (rename sum "sum[7:0]") 8) (direction OUTPUT))
        )
        (contents
@@ -251,7 +251,7 @@
           (portref (member b 7))
           )
          )
-         (net alufn0 (joined
+         (net (rename alufn_0_ "alufn[0]") (joined
           (portref CI (instanceref Maddsub_summ_cy_0_))
           (portref CI (instanceref Maddsub_summ_xor_0_))
           (portref I2 (instanceref Maddsub_summ_lut_0_))
@@ -263,7 +263,7 @@
           (portref I2 (instanceref Maddsub_summ_lut_6_))
           (portref I2 (instanceref Maddsub_summ_lut_7_))
           (portref I3 (instanceref v1))
-          (portref alufn0)
+          (portref alufn_0_)
           )
          )
          (net (rename Maddsub_summ_lut_0_ "Maddsub_summ_lut[0]") (joined
@@ -1614,7 +1614,7 @@
           (portref O (instanceref io_dip_16_IBUF))
           (portref I0 (instanceref Mmux_io_led_7_0_28_SW0))
           (portref I3 (instanceref Mmux_io_led_7_0_76_SW0))
-          (portref alufn0 (instanceref add))
+          (portref alufn_0_ (instanceref add))
           )
          )
          (net (rename Mmux_io_led_7_0_21 "Mmux_io_led<7:0>21") (joined

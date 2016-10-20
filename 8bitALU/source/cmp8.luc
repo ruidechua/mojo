@@ -1,5 +1,5 @@
 module cmp8 (
-    input alufn[8],
+    input alufn[6],
     input z,
     input n,
     input v,

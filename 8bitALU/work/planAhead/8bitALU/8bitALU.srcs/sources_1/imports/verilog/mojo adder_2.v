@@ -7,7 +7,7 @@
 module mojo_adder_2 (
     input [7:0] a,
     input [7:0] b,
-    input alufn0,
+    input [5:0] alufn,
     output reg [7:0] sum,
     output reg z,
     output reg n,
@@ -20,7 +20,7 @@ module mojo_adder_2 (
   
   always @* begin
     
-    case (alufn0)
+    case (alufn[0+0-:1])
       1'h1: begin
         summ = a - b;
       end
@@ -37,7 +37,7 @@ module mojo_adder_2 (
       z = 1'h0;
     end
     n = summ[7+0-:1];
-    v = (a[7+0-:1] & (b[7+0-:1] ^ alufn0) & (~summ[7+0-:1])) | ((~a[7+0-:1]) & (~(b[7+0-:1] ^ alufn0)) & (summ[7+0-:1]));
+    v = (a[7+0-:1] & (b[7+0-:1] ^ alufn[0+0-:1]) & (~summ[7+0-:1])) | ((~a[7+0-:1]) & (~(b[7+0-:1] ^ alufn[0+0-:1])) & (summ[7+0-:1]));
     sum = summ;
   end
 endmodule

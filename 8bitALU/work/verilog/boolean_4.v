@@ -5,7 +5,7 @@
 */
 
 module boolean_4 (
-    input [3:0] alufn,
+    input [5:0] alufn,
     input [7:0] a,
     input [7:0] b,
     output reg [7:0] boole

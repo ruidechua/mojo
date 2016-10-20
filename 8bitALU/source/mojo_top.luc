@@ -56,7 +56,7 @@ module mojo_top (
     //adder components
     add.a = a;
     add.b = b;
-    add.alufn0 = alufn[0];
+    add.alufn = alufn;
     
     //comparator components
     comp.v = add.v;
@@ -67,12 +67,12 @@ module mojo_top (
     //boolean components
     boo.a = a;
     boo.b = b;
-    boo.alufn = alufn[3:0];
+    boo.alufn = alufn;
     
     //shifter components
     shift.a = a;
     shift.b = b[2:0];
-    shift.alufn = alufn[1:0];
+    shift.alufn = alufn;
     
     
     //mux them togather  
