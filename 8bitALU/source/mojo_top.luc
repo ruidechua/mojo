@@ -105,8 +105,18 @@ module mojo_top (
       actual_out[1] = 1; //bit 2 altered when switch[2][6] is on
     }
     if (io_dip[2][7]==1){
-      //actual_out[4] = ~out[4]; //bit 5 altered when switch[2][7] is on
-      actual_out[4] = 0; //bit 5 altered when switch[2][7] is on
+      case(alufn[5:4]){
+          b00:
+          actual_out = add.sum+1; //adder
+          b11:
+          actual_out = comp.out+3; //comparator
+          b01:
+          actual_out = boo.boole + 8; //boolean value modified
+          b10:
+          actual_out = shift.shift + 1; //shifter
+          default: 
+          actual_out = 8b00000000;
+      }
     }
     io_led[1] = actual_out;
     

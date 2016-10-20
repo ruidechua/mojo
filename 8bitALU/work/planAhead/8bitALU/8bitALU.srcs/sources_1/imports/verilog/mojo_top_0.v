@@ -151,7 +151,24 @@ module mojo_top_0 (
       actual_out[1+0-:1] = 1'h1;
     end
     if (io_dip[16+7+0-:1] == 1'h1) begin
-      actual_out[4+0-:1] = 1'h0;
+      
+      case (alufn[4+1-:2])
+        2'h0: begin
+          actual_out = M_add_sum + 1'h1;
+        end
+        2'h3: begin
+          actual_out = M_comp_out + 2'h3;
+        end
+        2'h1: begin
+          actual_out = M_boo_boole + 4'h8;
+        end
+        2'h2: begin
+          actual_out = M_shift_shift + 1'h1;
+        end
+        default: begin
+          actual_out = 8'h00;
+        end
+      endcase
     end
     io_led[8+7-:8] = actual_out;
   end
