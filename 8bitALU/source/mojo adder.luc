@@ -18,21 +18,19 @@ module mojo_adder (
    default: summ = 8b00000000;
 		}
     
-    if (summ==0) {
+    if (summ==8b0000000) {
     z = 1;
     }
     else {
     z = 0;
     }
     
-    if (summ[7] == 1) {
-    n = 1;
-    }
-    else {
-    n = 0;
-    }
+    n = summ[7];
     
-    v = a[7] & (b[7]^alufn0) & (~summ[7]) | (~a[7]) & (~(b[7]^alufn0)) & (summ[7]); //^ - XOR, ~ - NOT
+    //if(summ > 255) v = 1;
+    //else v = 0;
+    
+    v = (a[7] & (b[7]^alufn0) & (~summ[7])) | ((~a[7]) & (~(b[7]^alufn0)) & (summ[7])); //^ - XOR, ~ - NOT
     sum = summ;
 		}
 	}

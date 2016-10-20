@@ -82,7 +82,7 @@ module mojo_top (
     b11:
     out = comp.out; //comparator
     b01:
-    io_led[0] = boo.boole; //boolean
+    out = boo.boole; //boolean
     b10:
     out = shift.shift; //shifter
     default: 
