@@ -6,6 +6,7 @@
     <src>cmp8.luc</src>
     <src>shifter.luc</src>
     <src>mojo adder.luc</src>
+    <src>dotMatrix.luc</src>
     <src top="true">mojo_top.luc</src>
     <ucf lib="true">io_shield.ucf</ucf>
     <ucf lib="true">mojo.ucf</ucf>

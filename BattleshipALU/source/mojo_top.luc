@@ -1,0 +1,136 @@
+module mojo_top (
+    input clk,              // 50MHz clock
+    input rst_n,            // reset button (active low)
+    output led [8],         // 8 user controllable LEDs
+    input cclk,             // configuration clock, AVR ready when high
+    output spi_miso,        // AVR SPI MISO
+    input spi_ss,           // AVR SPI Slave Select
+    input spi_mosi,         // AVR SPI MOSI
+    input spi_sck,          // AVR SPI Clock
+    output spi_channel [4], // AVR general purpose pins (used by default to select ADC channel)
+    input avr_tx,           // AVR TX (FPGA RX)
+    output avr_rx,          // AVR RX (FPGA TX)
+    input avr_rx_busy,       // AVR RX buffer full
+    output p1pc[5],
+    output p1pr[7],
+    output p2pc[5],
+    output p2pr[7],
+    output p1rc[10],
+    output p1rr[14],
+    output p2rc[10],
+    output p2rr[14]
+    
+  ) {
+  
+  sig rst;                  // reset signal
+  sig player1ownc[10], player1ownr[14],player2ownc[10],player2ownr[14];
+  sig player1comc[10], player1comr[14],player2comc[10],player2comr[14];
+  sig player1ownmap[10][14],player1commap[10][14],player2commap[10][14],player2ownmap[10][14];
+  
+  var i,j;
+  
+  dotMatrix p1ownmap;
+  dotMatrix p1commap;
+  dotMatrix p2ownmap;
+  dotMatrix p2commap;
+  
+
+  
+  
+  
+  .clk(clk) {
+    // The reset conditioner is used to synchronize the reset signal to the FPGA
+    // clock. This ensures the entire FPGA comes out of reset at the same time.
+    reset_conditioner reset_cond;
+  }
+  
+
+  
+  always {
+    reset_cond.in = ~rst_n; // input raw inverted reset signal
+    rst = reset_cond.out;   // conditioned reset
+    
+    led = 8h00;             // turn LEDs off
+    spi_miso = bz;          // not using SPI
+    spi_channel = bzzzz;    // not using flags
+    avr_rx = bz;            // not using serial port
+    
+    for (i=0;i<10;i++){
+      for(j=0;j<14;j++){
+        player1ownmap[i][j] = 0;
+        player1commap[i][j] = 0;
+        player2ownmap[i][j] = 0;
+        player2commap[i][j] = 0;
+      }
+    }
+    
+    p1ownmap.rst = rst;
+    p1ownmap.clk = clk;
+    p1ownmap.status = player1ownmap;
+    player1ownc = p1ownmap.allc;
+    player1ownr = p1ownmap.allr;
+    
+    p1commap.rst = rst;
+    p1commap.clk = clk;
+    p1commap.status = player1commap;
+    player1comc = p1commap.allc;
+    player1comr = p1commap.allr;
+    
+    p2ownmap.rst = rst;
+    p2ownmap.clk = clk;
+    p2ownmap.status = player2ownmap;
+    player2ownc = p2ownmap.allc;
+    player2ownr = p2ownmap.allr;
+    
+    p2commap.rst = rst;
+    p2commap.clk = clk;
+    p2commap.status = player2commap;
+    player2comc = p2commap.allc;
+    player2comr = p2commap.allr;
+
+    
+     
+    player1ownc = 10b0;
+    player1ownr = 14b0;
+    player2ownc = 10b0;
+    player2ownr = 14b0;
+    player1comc = 10b0;
+    player1comr = 14b0;
+    player2comc = 10b0;
+    player2comr = 14b0;
+
+    
+
+    p1pc[0] = player1ownc[0];
+    p1pc[1] = player1ownc[2];
+    p1pc[2] = player1ownc[4];
+    p1pc[3] = player1ownc[6];
+    p1pc[4] = player1ownc[8];
+    p1pr[0] = player1ownr[0];
+    p1pr[1] = player1ownr[2];
+    p1pr[2] = player1ownr[4];
+    p1pr[3] = player1ownr[6];
+    p1pr[4] = player1ownr[8];
+    p1pr[5] = player1ownr[10];
+    p1pr[6] = player1ownr[12];
+    
+    p2pc[0] = player2ownc[0];
+    p2pc[1] = player2ownc[2];
+    p2pc[2] = player2ownc[4];
+    p2pc[3] = player2ownc[6];
+    p2pc[4] = player2ownc[8];
+    p2pr[0] = player2ownr[0];
+    p2pr[1] = player2ownr[2];
+    p2pr[2] = player2ownr[4];
+    p2pr[3] = player2ownr[6];
+    p2pr[4] = player2ownr[8];
+    p2pr[5] = player2ownr[10];
+    p2pr[6] = player2ownr[12];
+
+    p1rc = player1comc;
+    p1rr = player1comr;
+
+    p2rc = player2comc;
+    p2rr = player2comr;
+  }
+}

@@ -1,0 +1,37 @@
+
+*** Running xst
+    with args -ifn "mojo_top_0.xst" -ofn "mojo_top_0.srp" -intstyle ise
+
+Reading design: mojo_top_0.prj
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/reset_conditioner_5.v" into library work
+Parsing module <reset_conditioner_5>.
+Analyzing Verilog file "C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/dotMatrix_1.v" into library work
+Parsing module <dotMatrix_1>.
+Analyzing Verilog file "C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v" into library work
+Parsing module <mojo_top_0>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating module <mojo_top_0>.
+
+Elaborating module <dotMatrix_1>.
+ERROR:HDLCompiler:532 - "C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/dotMatrix_1.v" Line 42: Index <10> is out of range [9:0] for signal <allc>.
+INFO - You can change the severity of this error message to warning using switch -change_error_to_warning "HDLCompiler:532"
+Module dotMatrix_1 remains a blackbox, due to errors in its contents
+WARNING:HDLCompiler:1499 - "C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/dotMatrix_1.v" Line 7: Empty module <dotMatrix_1> remains a black box.
+
+Elaborating module <reset_conditioner_5>.
+--> 
+
+Total memory usage is 245008 kilobytes
+
+Number of errors   :    1 (   0 filtered)
+Number of warnings :    1 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+
