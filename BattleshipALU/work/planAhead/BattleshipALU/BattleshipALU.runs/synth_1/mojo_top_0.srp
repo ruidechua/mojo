@@ -3,7 +3,7 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.10 secs
+Total CPU time to Xst completion: 0.17 secs
  
 --> Reading design: mojo_top_0.prj
 
@@ -75,7 +75,7 @@ WARNING:HDLCompiler:1499 - "C:/Users/Chua/Documents/mojo/BattleshipALU/work/plan
 Elaborating module <reset_conditioner_5>.
 --> 
 
-Total memory usage is 245008 kilobytes
+Total memory usage is 245520 kilobytes
 
 Number of errors   :    1 (   0 filtered)
 Number of warnings :    1 (   0 filtered)
