@@ -295,6 +295,7 @@ module mojo_top_0 (
   reg [6:0] M_p1_tempr_d, M_p1_tempr_q = 1'h0;
   reg [4:0] M_p2_tempc_d, M_p2_tempc_q = 1'h0;
   reg [6:0] M_p2_tempr_d, M_p2_tempr_q = 1'h0;
+  reg [3:0] M_activated_d, M_activated_q = 1'h0;
   
   always @* begin
     M_reset_cond_in = ~rst_n;
@@ -342,6 +343,10 @@ module mojo_top_0 (
     p1self[84+18+2-:3] = 1'h1;
     p1self[21+6+2-:3] = 3'h4;
     p1self[42+3+2-:3] = 3'h4;
+    p1opp[63+12+2-:3] = 2'h2;
+    p1opp[84+18+2-:3] = 3'h4;
+    p1opp[21+6+2-:3] = 2'h3;
+    p1opp[42+3+2-:3] = 1'h1;
     M_dmP1s_activate = 1'h1;
     M_dmP1s_confirmed = p1self;
     M_dmP1s_tempc = 5'h03;
@@ -350,57 +355,21 @@ module mojo_top_0 (
     M_dmP1o_confirmed = p1opp;
     M_dmP1o_tempc = 5'h03;
     M_dmP1o_tempr = 7'h03;
-    M_dmP2s_activate = 1'h1;
+    M_dmP2s_activate = M_activated_q[2+0-:1];
     M_dmP2s_confirmed = p2self;
-    M_dmP2s_tempc = 5'h03;
-    M_dmP2s_tempr = 7'h03;
-    M_dmP2o_activate = 1'h1;
+    M_dmP2s_tempc = M_p2_tempc_q;
+    M_dmP2s_tempr = M_p2_tempr_q;
+    M_dmP2o_activate = M_activated_q[3+0-:1];
     M_dmP2o_confirmed = p2opp;
-    M_dmP2o_tempc = 5'h03;
-    M_dmP2o_tempr = 7'h03;
+    M_dmP2o_tempc = M_p2_tempc_q;
+    M_dmP2o_tempr = M_p2_tempr_q;
   end
-  
-  always @(posedge clk) begin
-    if (rst == 1'b1) begin
-      M_p2sdff_q <= 1'h0;
-    end else begin
-      M_p2sdff_q <= M_p2sdff_d;
-    end
-  end
-  
-  
-  always @(posedge clk) begin
-    if (rst == 1'b1) begin
-      M_p2_blobs_q <= 1'h0;
-    end else begin
-      M_p2_blobs_q <= M_p2_blobs_d;
-    end
-  end
-  
-  
-  always @(posedge clk) begin
-    if (rst == 1'b1) begin
-      M_p1_tempr_q <= 1'h0;
-    end else begin
-      M_p1_tempr_q <= M_p1_tempr_d;
-    end
-  end
-  
   
   always @(posedge clk) begin
     if (rst == 1'b1) begin
       M_p2_tempr_q <= 1'h0;
     end else begin
       M_p2_tempr_q <= M_p2_tempr_d;
-    end
-  end
-  
-  
-  always @(posedge clk) begin
-    if (rst == 1'b1) begin
-      M_p1_tempc_q <= 1'h0;
-    end else begin
-      M_p1_tempc_q <= M_p1_tempc_d;
     end
   end
   
@@ -416,18 +385,18 @@ module mojo_top_0 (
   
   always @(posedge clk) begin
     if (rst == 1'b1) begin
-      M_p1sdff_q <= 1'h0;
+      M_p2odff_q <= 1'h0;
     end else begin
-      M_p1sdff_q <= M_p1sdff_d;
+      M_p2odff_q <= M_p2odff_d;
     end
   end
   
   
   always @(posedge clk) begin
     if (rst == 1'b1) begin
-      M_p2_tempc_q <= 1'h0;
+      M_p1_tempr_q <= 1'h0;
     end else begin
-      M_p2_tempc_q <= M_p2_tempc_d;
+      M_p1_tempr_q <= M_p1_tempr_d;
     end
   end
   
@@ -443,9 +412,54 @@ module mojo_top_0 (
   
   always @(posedge clk) begin
     if (rst == 1'b1) begin
-      M_p2odff_q <= 1'h0;
+      M_p1_tempc_q <= 1'h0;
     end else begin
-      M_p2odff_q <= M_p2odff_d;
+      M_p1_tempc_q <= M_p1_tempc_d;
+    end
+  end
+  
+  
+  always @(posedge clk) begin
+    if (rst == 1'b1) begin
+      M_p1sdff_q <= 1'h0;
+    end else begin
+      M_p1sdff_q <= M_p1sdff_d;
+    end
+  end
+  
+  
+  always @(posedge clk) begin
+    if (rst == 1'b1) begin
+      M_p2_blobs_q <= 1'h0;
+    end else begin
+      M_p2_blobs_q <= M_p2_blobs_d;
+    end
+  end
+  
+  
+  always @(posedge clk) begin
+    if (rst == 1'b1) begin
+      M_p2sdff_q <= 1'h0;
+    end else begin
+      M_p2sdff_q <= M_p2sdff_d;
+    end
+  end
+  
+  
+  always @(posedge clk) begin
+    if (rst == 1'b1) begin
+      M_p2_tempc_q <= 1'h0;
+    end else begin
+      M_p2_tempc_q <= M_p2_tempc_d;
+    end
+  end
+  
+  
+  always @(posedge clk) begin
+    if (rst == 1'b1) begin
+      M_activated_q <= 1'h0;
+    end else begin
+      M_activated_q <= M_activated_d;
     end
   end
   

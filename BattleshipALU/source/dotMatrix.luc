@@ -30,7 +30,6 @@ module dotMatrix (
     redr = 0;
     redc = 5b11111;
     
-    if (activate){
           case(row.q){
       //R is red bit, G is green, ONE,TWO,THREE,FOUR,FIVE are col
             row.ONEG: greenc[0] = 0;
@@ -38,7 +37,7 @@ module dotMatrix (
                           if(confirmed[0][i] == 1||confirmed[0][i] == 5) greenr[i] = 1; //if 1 and 5, produce solid green
                           else if(confirmed[0][i] == 3b100) greenr[i] = blinker.q[24]; //if 4, product blinking green
                       }
-                      if(tempc[0] == 1)
+                      if(tempc[0] == 1 && activate)
                         for(i = 0; i<7; i++)
                             if(tempr[i] == 1) greenr[i] = 1; //if temp, product solid green
                       if(counter.q[8] ==1)row.d= row.ONER; //if time is up, move to next state. (for scanning)
@@ -53,7 +52,7 @@ module dotMatrix (
                           if(confirmed[1][i] == 3b001||confirmed[1][i] == 3b101) greenr[i] = 1;
                           else if(confirmed[1][i] == 3b100) greenr[i] = blinker.q[24];
                       }
-                      if(tempc[1] == 1)
+                      if(tempc[1] == 1 && activate)
                         for(i = 0; i<7; i++)
                             if(tempr[i] == 1) greenr[i] = 1;
                       if(counter.q[8] ==1)row.d= row.TWOR;
@@ -68,7 +67,7 @@ module dotMatrix (
                           if(confirmed[2][i] == 3b001||confirmed[2][i] == 3b101) greenr[i] = 1;
                           else if(confirmed[2][i] == 3b100) greenr[i] = blinker.q[24];
                       }
-                      if(tempc[2] == 1)
+                      if(tempc[2] == 1 && activate)
                         for(i = 0; i<7; i++)
                             if(tempr[i] == 1) greenr[i] = 1;        
                       if(counter.q[8] ==1)row.d= row.THREER;
@@ -83,7 +82,7 @@ module dotMatrix (
                           if(confirmed[3][i] == 3b001||confirmed[3][i] == 3b101) greenr[i] = 1;
                           else if(confirmed[3][i] == 3b100) greenr[i] = blinker.q[24];
                       }
-                      if(tempc[3] == 1)
+                      if(tempc[3] == 1 && activate)
                         for(i = 0; i<7; i++)
                             if(tempr[i] == 1) greenr[i] = 1;
                       if(counter.q[8] ==1)row.d= row.FOURR;
@@ -98,7 +97,7 @@ module dotMatrix (
                           if(confirmed[4][i] == 3b001||confirmed[4][i] == 3b101) greenr[i] = 1;
                           else if(confirmed[4][i] == 3b100) greenr[i] = blinker.q[24];
                       }
-                      if(tempc[4] == 1)
+                      if(tempc[4] == 1 && activate)
                         for(i = 0; i<7; i++)
                             if(tempr[i] == 1) greenr[i] = 1;
                       if(counter.q[8] ==1)row.d= row.FIVER;
@@ -109,7 +108,6 @@ module dotMatrix (
                       }
                       if(counter.q[8] ==1)row.d= row.ONEG;   
           } 
-        }
     if(counter.q[8] ==1) counter.d = 0; //if reached '1' for the first time, reset counter back to zero
     else counter.d = counter.q + 1; //otherwise increment counter
     blinker.d = blinker.q +1;//for blinker machanism: increase count.

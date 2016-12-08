@@ -8,7 +8,7 @@ Target Device  : xc6slx9
 Target Package : tqg144
 Target Speed   : -2
 Mapper Version : spartan6 -- $Revision: 1.55 $
-Mapped Date    : Fri Dec 09 01:12:32 2016
+Mapped Date    : Fri Dec 09 01:40:37 2016
 
 Design Summary
 --------------
@@ -20,11 +20,11 @@ Slice Logic Utilization:
     Number used as Latches:                      0
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                0
-  Number of Slice LUTs:                         47 out of   5,720    1%
-    Number used as logic:                       45 out of   5,720    1%
-      Number using O6 output only:               5
+  Number of Slice LUTs:                         50 out of   5,720    1%
+    Number used as logic:                       48 out of   5,720    1%
+      Number using O6 output only:               7
       Number using O5 output only:              23
-      Number using O5 and O6:                   17
+      Number using O5 and O6:                   18
       Number used as ROM:                        0
     Number used as Memory:                       0 out of   1,440    0%
     Number used exclusively as route-thrus:      2
@@ -33,12 +33,12 @@ Slice Logic Utilization:
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                    22 out of   1,430    1%
+  Number of occupied Slices:                    23 out of   1,430    1%
   Number of MUXCYs used:                        40 out of   2,860    1%
-  Number of LUT Flip Flop pairs used:           49
-    Number with an unused Flip Flop:            10 out of      49   20%
-    Number with an unused LUT:                   2 out of      49    4%
-    Number of fully used LUT-FF pairs:          37 out of      49   75%
+  Number of LUT Flip Flop pairs used:           52
+    Number with an unused Flip Flop:            11 out of      52   21%
+    Number with an unused LUT:                   2 out of      52    3%
+    Number of fully used LUT-FF pairs:          39 out of      52   75%
     Number of unique control sets:               3
     Number of slice register sites lost
       to control set restrictions:              14 out of  11,440    1%
@@ -78,10 +78,10 @@ Specific Feature Utilization:
   Number of STARTUPs:                            0 out of       1    0%
   Number of SUSPEND_SYNCs:                       0 out of       1    0%
 
-Average Fanout of Non-Clock Nets:                2.15
+Average Fanout of Non-Clock Nets:                2.20
 
 Peak Memory Usage:  424 MB
-Total REAL time to MAP completion:  6 secs 
+Total REAL time to MAP completion:  5 secs 
 Total CPU time to MAP completion (all processors):   5 secs 
 
 Table of Contents
@@ -242,8 +242,8 @@ Unused block "spi_miso" (PAD) removed.
 Optimized Block(s):
 TYPE 		BLOCK
 GND 		XST_GND
-VCC 		dmP2s/C
-GND 		dmP2s/D
+VCC 		dmP2o/C
+GND 		dmP2o/D
 GND 		reset_cond/XST_GND
 
 To enable printing of redundant blocks removed and signals merged, set the

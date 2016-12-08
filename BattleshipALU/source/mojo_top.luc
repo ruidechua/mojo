@@ -95,6 +95,8 @@ module mojo_top (
       dff p1_tempr[7](.clk(clk));
       dff p2_tempc[5](.clk(clk));
       dff p2_tempr[7](.clk(clk));
+    
+      dff activated[4](.clk(clk));
   }
   
   
@@ -166,24 +168,37 @@ module mojo_top (
     p1self[1][2] = 4;
     p1self[2][1] = 4;
     
+    p1opp[3][4] = 2;
+    p1opp[4][6] = 4;
+    p1opp[1][2] = 3;
+    p1opp[2][1] = 1;
+    
+    //dmP1s.activate = activated.q[0];
     dmP1s.activate = 1;
     dmP1s.confirmed = p1self;
     dmP1s.tempc = 5b00011;
     dmP1s.tempr = 7b0000011;
+    //dmP1s.tempc = p1_tempc.q;
+    //dmP1s.tempr = p1_tempr.q;
+
     
+    //dmP1o.activate = activated.q[1];
     dmP1o.activate = 1;
     dmP1o.confirmed = p1opp;
     dmP1o.tempc = 5b00011;
     dmP1o.tempr = 7b0000011;
-    
-    dmP2s.activate = 1;
-    dmP2s.confirmed = p2self;
-    dmP2s.tempc = 5b00011;
-    dmP2s.tempr = 7b0000011;
+    //dmP1o.tempc = p1_tempc.q;
+    //dmP1o.tempr = p1_tempr.q;
 
-    dmP2o.activate = 1;
+    
+    dmP2s.activate = activated.q[2];
+    dmP2s.confirmed = p2self;
+    dmP2s.tempc = p2_tempc.q;
+    dmP2s.tempr = p2_tempr.q;
+
+    dmP2o.activate = activated.q[3];
     dmP2o.confirmed = p2opp;
-    dmP2o.tempc = 5b00011;
-    dmP2o.tempr = 7b0000011;
+    dmP2o.tempc = p2_tempc.q;
+    dmP2o.tempr = p2_tempr.q;
 }
 }
