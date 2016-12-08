@@ -7,14 +7,24 @@
 module dotMatrix_1 (
     input clk,
     input rst,
-    input [139:0] status,
-    output reg [9:0] allc,
-    output reg [13:0] allr
+    input [104:0] confirmed,
+    input [4:0] tempc,
+    input [6:0] tempr,
+    input activate,
+    output reg [4:0] greenc,
+    output reg [6:0] greenr,
+    output reg [4:0] redc,
+    output reg [6:0] redr
   );
   
   
   
   integer i;
+  integer j;
+  
+  reg [24:0] M_counter_d, M_counter_q = 1'h0;
+  
+  reg [24:0] M_blinker_d, M_blinker_q = 1'h0;
   
   
   localparam ONER_row = 4'd0;
@@ -32,129 +42,231 @@ module dotMatrix_1 (
   
   always @* begin
     M_row_d = M_row_q;
+    M_blinker_d = M_blinker_q;
+    M_counter_d = M_counter_q;
     
-    
-    case (M_row_q)
-      ONER_row: begin
-        allr = 1'h1;
-        for (i = 1'h0; i < 4'he; i = i + 1) begin
-          if (status[0+(i)*1+0-:1] == 1'h1) begin
-            allc[(i)*1+0-:1] = 1'h1;
-          end else begin
-            allc[(i)*1+0-:1] = 1'h0;
+    greenr = 1'h0;
+    greenc = 5'h1f;
+    redr = 1'h0;
+    redc = 5'h1f;
+    if (activate) begin
+      
+      case (M_row_q)
+        ONEG_row: begin
+          greenc[0+0-:1] = 1'h0;
+          for (i = 1'h0; i < 3'h7; i = i + 1) begin
+            if (confirmed[0+(i)*3+2-:3] == 3'h1 || confirmed[0+(i)*3+2-:3] == 3'h5) begin
+              greenr[(i)*1+0-:1] = 1'h1;
+            end else begin
+              if (confirmed[0+(i)*3+2-:3] == 3'h4) begin
+                greenr[(i)*1+0-:1] = M_blinker_q[24+0-:1];
+              end
+            end
+          end
+          if (tempc[0+0-:1] == 1'h1) begin
+            for (i = 1'h0; i < 3'h7; i = i + 1) begin
+              if (tempr[(i)*1+0-:1] == 1'h1) begin
+                greenr[(i)*1+0-:1] = 1'h1;
+              end
+            end
+          end
+          if (M_counter_q[8+0-:1] == 1'h1) begin
+            M_row_d = ONER_row;
           end
         end
-        M_row_d = ONEG_row;
-      end
-      ONEG_row: begin
-        allr = 2'h2;
-        for (i = 1'h0; i < 4'he; i = i + 1) begin
-          if (status[14+(i)*1+0-:1] == 1'h1) begin
-            allc[(i)*1+0-:1] = 1'h1;
-          end else begin
-            allc[(i)*1+0-:1] = 1'h0;
+        ONER_row: begin
+          redc[0+0-:1] = 1'h0;
+          for (i = 1'h0; i < 3'h7; i = i + 1) begin
+            if (confirmed[0+(i)*3+2-:3] == 3'h3) begin
+              redr[(i)*1+0-:1] = 1'h1;
+            end else begin
+              if (confirmed[0+(i)*3+2-:3] == 3'h2) begin
+                redr[(i)*1+0-:1] = M_blinker_q[24+0-:1];
+              end
+            end
+          end
+          if (M_counter_q[8+0-:1] == 1'h1) begin
+            M_row_d = TWOG_row;
           end
         end
-        M_row_d = TWOR_row;
-      end
-      TWOR_row: begin
-        allr = 3'h4;
-        for (i = 1'h0; i < 4'he; i = i + 1) begin
-          if (status[28+(i)*1+0-:1] == 1'h1) begin
-            allc[(i)*1+0-:1] = 1'h1;
-          end else begin
-            allc[(i)*1+0-:1] = 1'h0;
+        TWOG_row: begin
+          greenc[1+0-:1] = 1'h0;
+          for (i = 1'h0; i < 3'h7; i = i + 1) begin
+            if (confirmed[21+(i)*3+2-:3] == 3'h1 || confirmed[21+(i)*3+2-:3] == 3'h5) begin
+              greenr[(i)*1+0-:1] = 1'h1;
+            end else begin
+              if (confirmed[21+(i)*3+2-:3] == 3'h4) begin
+                greenr[(i)*1+0-:1] = M_blinker_q[24+0-:1];
+              end
+            end
+          end
+          if (tempc[1+0-:1] == 1'h1) begin
+            for (i = 1'h0; i < 3'h7; i = i + 1) begin
+              if (tempr[(i)*1+0-:1] == 1'h1) begin
+                greenr[(i)*1+0-:1] = 1'h1;
+              end
+            end
+          end
+          if (M_counter_q[8+0-:1] == 1'h1) begin
+            M_row_d = TWOR_row;
           end
         end
-        M_row_d = TWOG_row;
-      end
-      TWOG_row: begin
-        allr = 4'h8;
-        for (i = 1'h0; i < 4'he; i = i + 1) begin
-          if (status[42+(i)*1+0-:1] == 1'h1) begin
-            allc[(i)*1+0-:1] = 1'h1;
-          end else begin
-            allc[(i)*1+0-:1] = 1'h0;
+        TWOR_row: begin
+          redc[1+0-:1] = 1'h0;
+          for (i = 1'h0; i < 3'h7; i = i + 1) begin
+            if (confirmed[21+(i)*3+2-:3] == 3'h3) begin
+              redr[(i)*1+0-:1] = 1'h1;
+            end else begin
+              if (confirmed[21+(i)*3+2-:3] == 3'h2) begin
+                redr[(i)*1+0-:1] = M_blinker_q[24+0-:1];
+              end
+            end
+          end
+          if (M_counter_q[8+0-:1] == 1'h1) begin
+            M_row_d = THREEG_row;
           end
         end
-        M_row_d = THREER_row;
-      end
-      THREER_row: begin
-        allr = 5'h10;
-        for (i = 1'h0; i < 4'he; i = i + 1) begin
-          if (status[56+(i)*1+0-:1] == 1'h1) begin
-            allc[(i)*1+0-:1] = 1'h1;
-          end else begin
-            allc[(i)*1+0-:1] = 1'h0;
+        THREEG_row: begin
+          greenc[2+0-:1] = 1'h0;
+          for (i = 1'h0; i < 3'h7; i = i + 1) begin
+            if (confirmed[42+(i)*3+2-:3] == 3'h1 || confirmed[42+(i)*3+2-:3] == 3'h5) begin
+              greenr[(i)*1+0-:1] = 1'h1;
+            end else begin
+              if (confirmed[42+(i)*3+2-:3] == 3'h4) begin
+                greenr[(i)*1+0-:1] = M_blinker_q[24+0-:1];
+              end
+            end
+          end
+          if (tempc[2+0-:1] == 1'h1) begin
+            for (i = 1'h0; i < 3'h7; i = i + 1) begin
+              if (tempr[(i)*1+0-:1] == 1'h1) begin
+                greenr[(i)*1+0-:1] = 1'h1;
+              end
+            end
+          end
+          if (M_counter_q[8+0-:1] == 1'h1) begin
+            M_row_d = THREER_row;
           end
         end
-        M_row_d = TWOG_row;
-      end
-      THREEG_row: begin
-        allr = 6'h20;
-        for (i = 1'h0; i < 4'he; i = i + 1) begin
-          if (status[70+(i)*1+0-:1] == 1'h1) begin
-            allc[(i)*1+0-:1] = 1'h1;
-          end else begin
-            allc[(i)*1+0-:1] = 1'h0;
+        THREER_row: begin
+          redc[2+0-:1] = 1'h0;
+          for (i = 1'h0; i < 3'h7; i = i + 1) begin
+            if (confirmed[42+(i)*3+2-:3] == 3'h3) begin
+              redr[(i)*1+0-:1] = 1'h1;
+            end else begin
+              if (confirmed[42+(i)*3+2-:3] == 3'h2) begin
+                redr[(i)*1+0-:1] = M_blinker_q[24+0-:1];
+              end
+            end
+          end
+          if (M_counter_q[8+0-:1] == 1'h1) begin
+            M_row_d = FOURG_row;
           end
         end
-        M_row_d = FOURR_row;
-      end
-      FOURR_row: begin
-        allr = 7'h40;
-        for (i = 1'h0; i < 4'he; i = i + 1) begin
-          if (status[84+(i)*1+0-:1] == 1'h1) begin
-            allc[(i)*1+0-:1] = 1'h1;
-          end else begin
-            allc[(i)*1+0-:1] = 1'h0;
+        FOURG_row: begin
+          greenc[3+0-:1] = 1'h0;
+          for (i = 1'h0; i < 3'h7; i = i + 1) begin
+            if (confirmed[63+(i)*3+2-:3] == 3'h1 || confirmed[63+(i)*3+2-:3] == 3'h5) begin
+              greenr[(i)*1+0-:1] = 1'h1;
+            end else begin
+              if (confirmed[63+(i)*3+2-:3] == 3'h4) begin
+                greenr[(i)*1+0-:1] = M_blinker_q[24+0-:1];
+              end
+            end
+          end
+          if (tempc[3+0-:1] == 1'h1) begin
+            for (i = 1'h0; i < 3'h7; i = i + 1) begin
+              if (tempr[(i)*1+0-:1] == 1'h1) begin
+                greenr[(i)*1+0-:1] = 1'h1;
+              end
+            end
+          end
+          if (M_counter_q[8+0-:1] == 1'h1) begin
+            M_row_d = FOURR_row;
           end
         end
-        M_row_d = FOURG_row;
-      end
-      FOURG_row: begin
-        allr = 8'h80;
-        for (i = 1'h0; i < 4'he; i = i + 1) begin
-          if (status[98+(i)*1+0-:1] == 1'h1) begin
-            allc[(i)*1+0-:1] = 1'h1;
-          end else begin
-            allc[(i)*1+0-:1] = 1'h0;
+        FOURR_row: begin
+          redc[3+0-:1] = 1'h0;
+          for (i = 1'h0; i < 3'h7; i = i + 1) begin
+            if (confirmed[63+(i)*3+2-:3] == 3'h3) begin
+              redr[(i)*1+0-:1] = 1'h1;
+            end else begin
+              if (confirmed[63+(i)*3+2-:3] == 3'h2) begin
+                redr[(i)*1+0-:1] = M_blinker_q[24+0-:1];
+              end
+            end
+          end
+          if (M_counter_q[8+0-:1] == 1'h1) begin
+            M_row_d = FIVEG_row;
           end
         end
-        M_row_d = FIVER_row;
-      end
-      FIVER_row: begin
-        allr = 9'h100;
-        for (i = 1'h0; i < 4'he; i = i + 1) begin
-          if (status[112+(i)*1+0-:1] == 1'h1) begin
-            allc[(i)*1+0-:1] = 1'h1;
-          end else begin
-            allc[(i)*1+0-:1] = 1'h0;
+        FIVEG_row: begin
+          greenc[4+0-:1] = 1'h0;
+          for (i = 1'h0; i < 3'h7; i = i + 1) begin
+            if (confirmed[84+(i)*3+2-:3] == 3'h1 || confirmed[84+(i)*3+2-:3] == 3'h5) begin
+              greenr[(i)*1+0-:1] = 1'h1;
+            end else begin
+              if (confirmed[84+(i)*3+2-:3] == 3'h4) begin
+                greenr[(i)*1+0-:1] = M_blinker_q[24+0-:1];
+              end
+            end
+          end
+          if (tempc[4+0-:1] == 1'h1) begin
+            for (i = 1'h0; i < 3'h7; i = i + 1) begin
+              if (tempr[(i)*1+0-:1] == 1'h1) begin
+                greenr[(i)*1+0-:1] = 1'h1;
+              end
+            end
+          end
+          if (M_counter_q[8+0-:1] == 1'h1) begin
+            M_row_d = FIVER_row;
           end
         end
-        M_row_d = FOURG_row;
-      end
-      FIVEG_row: begin
-        allr = 10'h200;
-        for (i = 1'h0; i < 4'he; i = i + 1) begin
-          if (status[98+(i)*1+0-:1] == 1'h1) begin
-            allc[(i)*1+0-:1] = 1'h1;
-          end else begin
-            allc[(i)*1+0-:1] = 1'h0;
+        FIVER_row: begin
+          redc[4+0-:1] = 1'h0;
+          for (i = 1'h0; i < 3'h7; i = i + 1) begin
+            if (confirmed[84+(i)*3+2-:3] == 3'h3) begin
+              redr[(i)*1+0-:1] = 1'h1;
+            end else begin
+              if (confirmed[84+(i)*3+2-:3] == 3'h2) begin
+                redr[(i)*1+0-:1] = M_blinker_q[24+0-:1];
+              end
+            end
+          end
+          if (M_counter_q[8+0-:1] == 1'h1) begin
+            M_row_d = ONEG_row;
           end
         end
-        M_row_d = ONER_row;
-      end
-      default: begin
-        allr = 1'h1;
-        allc = 1'h1;
-        M_row_d = ONER_row;
-      end
-    endcase
+      endcase
+    end
+    if (M_counter_q[8+0-:1] == 1'h1) begin
+      M_counter_d = 1'h0;
+    end else begin
+      M_counter_d = M_counter_q + 1'h1;
+    end
+    M_blinker_d = M_blinker_q + 1'h1;
   end
   
   always @(posedge clk) begin
+    if (rst == 1'b1) begin
+      M_counter_q <= 1'h0;
+    end else begin
+      M_counter_q <= M_counter_d;
+    end
+  end
+  
+  
+  always @(posedge clk) begin
     M_row_q <= M_row_d;
+  end
+  
+  
+  always @(posedge clk) begin
+    if (rst == 1'b1) begin
+      M_blinker_q <= 1'h0;
+    end else begin
+      M_blinker_q <= M_blinker_d;
+    end
   end
   
 endmodule

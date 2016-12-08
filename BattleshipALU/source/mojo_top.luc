@@ -1,7 +1,7 @@
 module mojo_top (
     input clk,              // 50MHz clock
     input rst_n,            // reset button (active low)
-    output led [8],         // 8 user controllable LEDs
+    //output led [8],         // 8 user controllable LEDs
     input cclk,             // configuration clock, AVR ready when high
     output spi_miso,        // AVR SPI MISO
     input spi_ss,           // AVR SPI Slave Select
@@ -22,51 +22,76 @@ module mojo_top (
     output p2ogc[5],
     output p2ogr[7],
     output p2orc[5],
-    output p2orr[7]
-
-    
+    output p2orr[7],
+    input p1left,
+    input p1right,
+    input p1Up,
+    input p1Dn,
+    input p1Etr,
+    input p2Lft,
+    input p2Rgt,
+    input p2Up,
+    input p2Dn,
+    input p2Etr  
   ) {
   
   sig rst;                  // reset signal
-  sig p1own[5][7], p1opp[5][7];
-  sig p2own[5][7], p2opp[5][7];
-    
+  sig p1own[5][7][3], p1opp[5][7][3];
+  sig p2own[5][7][3], p2opp[5][7][3];
+  sig move[7];
+  dotMatrix dm1(.clk(clk), .rst(rst));
   var i,j;
 
+   dff counter[25](.clk(clk), .rst(rst));
   .clk(clk) {
     // The reset conditioner is used to synchronize the reset signal to the FPGA
     // clock. This ensures the entire FPGA comes out of reset at the same time.
     reset_conditioner reset_cond;
   }
-  
-
-  
+  .rst(rst){
+    
+  }
   always {
     reset_cond.in = ~rst_n; // input raw inverted reset signal
     rst = reset_cond.out;   // conditioned reset
     
-    led = 8h00;             // turn LEDs off
+    //led = 8h00;             // turn LEDs off
     spi_miso = bz;          // not using SPI
     spi_channel = bzzzz;    // not using flags
     avr_rx = bz;            // not using serial port
     
-    p1sc = 0;
-    p1sr = 0;
+        
+    move = 7x{counter.q[10]};
+    p1sc = dm1.greenc;
+    p1sr = dm1.greenr;
     p1ogc= 0; 
     p1ogr= 0;
     p1orc = 0;
-    p1orr = 0;
+    p1orr = move;
     p2sc = 0;
-    p2sr= 0;
+    p2sr= move;
     p2ogc= 0;
-    p2ogr= 0;
+    p2ogr= 0 ;
     p2orc= 0;
-    p2orr= 0;
-    p1own = 5x{{7b0}};
-    p1opp = 5x{{7b0}};
-    p2own = 5x{{7b0}};
-    p2opp = 5x{{7b0}};
+    p2orr= move;
+    p1own = 5x{{7x{{3b000}}}};
+    p1opp = 5x{{7x{{3b000}}}};
+    p2own = 5x{{7x{{3b000}}}};
+    p2opp = 5x{{7x{{3b000}}}};
     
+    p1own[3][4] = 3b001;
+    p1own[4][6] = 3b001;
+    p1own[1][2] = 3b100;
+    p1own[2][1] = 3b100;
+    
+    dm1.activate = 1;
+    dm1.confirmed = p1own;
+    dm1.tempc = 5b00000;
+    dm1.tempr = 7b0000000;
+    
+    
+    counter.d = counter.q + 1;
+      
 
 }
 }

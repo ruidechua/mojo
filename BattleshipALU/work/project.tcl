@@ -5,7 +5,7 @@ set device xc6slx9-2tqg144
 if {[file exists "$projDir/$projName"]} { file delete -force "$projDir/$projName" }
 create_project $projName "$projDir/$projName" -part $device
 set_property design_mode RTL [get_filesets sources_1]
-set verilogSources [list "C:/Users/Chua/Documents/mojo/BattleshipALU/work/verilog/mojo_top_0.v" "C:/Users/Chua/Documents/mojo/BattleshipALU/work/verilog/dotMatrix_1.v" "C:/Users/Chua/Documents/mojo/BattleshipALU/work/verilog/dotMatrix_1.v" "C:/Users/Chua/Documents/mojo/BattleshipALU/work/verilog/dotMatrix_1.v" "C:/Users/Chua/Documents/mojo/BattleshipALU/work/verilog/dotMatrix_1.v" "C:/Users/Chua/Documents/mojo/BattleshipALU/work/verilog/reset_conditioner_5.v"]
+set verilogSources [list "C:/Users/Chua/Documents/mojo/BattleshipALU/work/verilog/mojo_top_0.v" "C:/Users/Chua/Documents/mojo/BattleshipALU/work/verilog/dotMatrix_1.v" "C:/Users/Chua/Documents/mojo/BattleshipALU/work/verilog/reset_conditioner_2.v"]
 import_files -fileset [get_filesets sources_1] -force -norecurse $verilogSources
 set ucfSources [list "C:/Users/Chua/Documents/mojo/BattleshipALU/constraint/Extension.ucf" "C:/Program\ Files/Mojo\ IDE/library/components/mojo.ucf"]
 import_files -fileset [get_filesets constrs_1] -force -norecurse $ucfSources

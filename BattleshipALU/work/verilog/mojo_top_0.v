@@ -7,7 +7,6 @@
 module mojo_top_0 (
     input clk,
     input rst_n,
-    output reg [7:0] led,
     input cclk,
     output reg spi_miso,
     input spi_ss,
@@ -17,168 +16,119 @@ module mojo_top_0 (
     input avr_tx,
     output reg avr_rx,
     input avr_rx_busy,
-    output reg [4:0] p1pc,
-    output reg [6:0] p1pr,
-    output reg [4:0] p2pc,
-    output reg [6:0] p2pr,
-    output reg [9:0] p1rc,
-    output reg [13:0] p1rr,
-    output reg [9:0] p2rc,
-    output reg [13:0] p2rr
+    output reg [4:0] p1sc,
+    output reg [6:0] p1sr,
+    output reg [4:0] p1ogc,
+    output reg [6:0] p1ogr,
+    output reg [4:0] p1orc,
+    output reg [6:0] p1orr,
+    output reg [4:0] p2sc,
+    output reg [6:0] p2sr,
+    output reg [4:0] p2ogc,
+    output reg [6:0] p2ogr,
+    output reg [4:0] p2orc,
+    output reg [6:0] p2orr,
+    input p1left,
+    input p1right,
+    input p1Up,
+    input p1Dn,
+    input p1Etr,
+    input p2Lft,
+    input p2Rgt,
+    input p2Up,
+    input p2Dn,
+    input p2Etr
   );
   
   
   
   reg rst;
   
-  reg [9:0] player1ownc;
-  reg [13:0] player1ownr;
-  reg [9:0] player2ownc;
-  reg [13:0] player2ownr;
+  reg [104:0] p1own;
+  reg [104:0] p1opp;
   
-  reg [9:0] player1comc;
-  reg [13:0] player1comr;
-  reg [9:0] player2comc;
-  reg [13:0] player2comr;
+  reg [104:0] p2own;
+  reg [104:0] p2opp;
   
-  reg [139:0] player1ownmap;
-  reg [139:0] player1commap;
-  reg [139:0] player2commap;
-  reg [139:0] player2ownmap;
+  reg [6:0] move;
+  
+  wire [5-1:0] M_dm1_greenc;
+  wire [7-1:0] M_dm1_greenr;
+  wire [5-1:0] M_dm1_redc;
+  wire [7-1:0] M_dm1_redr;
+  reg [105-1:0] M_dm1_confirmed;
+  reg [5-1:0] M_dm1_tempc;
+  reg [7-1:0] M_dm1_tempr;
+  reg [1-1:0] M_dm1_activate;
+  dotMatrix_1 dm1 (
+    .clk(clk),
+    .rst(rst),
+    .confirmed(M_dm1_confirmed),
+    .tempc(M_dm1_tempc),
+    .tempr(M_dm1_tempr),
+    .activate(M_dm1_activate),
+    .greenc(M_dm1_greenc),
+    .greenr(M_dm1_greenr),
+    .redc(M_dm1_redc),
+    .redr(M_dm1_redr)
+  );
   
   integer i;
   integer j;
   
-  wire [10-1:0] M_p1ownmap_allc;
-  wire [14-1:0] M_p1ownmap_allr;
-  reg [1-1:0] M_p1ownmap_clk;
-  reg [1-1:0] M_p1ownmap_rst;
-  reg [140-1:0] M_p1ownmap_status;
-  dotMatrix_1 p1ownmap (
-    .clk(M_p1ownmap_clk),
-    .rst(M_p1ownmap_rst),
-    .status(M_p1ownmap_status),
-    .allc(M_p1ownmap_allc),
-    .allr(M_p1ownmap_allr)
-  );
-  
-  wire [10-1:0] M_p1commap_allc;
-  wire [14-1:0] M_p1commap_allr;
-  reg [1-1:0] M_p1commap_clk;
-  reg [1-1:0] M_p1commap_rst;
-  reg [140-1:0] M_p1commap_status;
-  dotMatrix_1 p1commap (
-    .clk(M_p1commap_clk),
-    .rst(M_p1commap_rst),
-    .status(M_p1commap_status),
-    .allc(M_p1commap_allc),
-    .allr(M_p1commap_allr)
-  );
-  
-  wire [10-1:0] M_p2ownmap_allc;
-  wire [14-1:0] M_p2ownmap_allr;
-  reg [1-1:0] M_p2ownmap_clk;
-  reg [1-1:0] M_p2ownmap_rst;
-  reg [140-1:0] M_p2ownmap_status;
-  dotMatrix_1 p2ownmap (
-    .clk(M_p2ownmap_clk),
-    .rst(M_p2ownmap_rst),
-    .status(M_p2ownmap_status),
-    .allc(M_p2ownmap_allc),
-    .allr(M_p2ownmap_allr)
-  );
-  
-  wire [10-1:0] M_p2commap_allc;
-  wire [14-1:0] M_p2commap_allr;
-  reg [1-1:0] M_p2commap_clk;
-  reg [1-1:0] M_p2commap_rst;
-  reg [140-1:0] M_p2commap_status;
-  dotMatrix_1 p2commap (
-    .clk(M_p2commap_clk),
-    .rst(M_p2commap_rst),
-    .status(M_p2commap_status),
-    .allc(M_p2commap_allc),
-    .allr(M_p2commap_allr)
-  );
+  reg [24:0] M_counter_d, M_counter_q = 1'h0;
   
   wire [1-1:0] M_reset_cond_out;
   reg [1-1:0] M_reset_cond_in;
-  reset_conditioner_5 reset_cond (
+  reset_conditioner_2 reset_cond (
     .clk(clk),
     .in(M_reset_cond_in),
     .out(M_reset_cond_out)
   );
   
+  
   always @* begin
+    M_counter_d = M_counter_q;
+    
     M_reset_cond_in = ~rst_n;
     rst = M_reset_cond_out;
-    led = 8'h00;
     spi_miso = 1'bz;
     spi_channel = 4'bzzzz;
     avr_rx = 1'bz;
-    for (i = 1'h0; i < 4'ha; i = i + 1) begin
-      for (j = 1'h0; j < 4'he; j = j + 1) begin
-        player1ownmap[(i)*14+(j)*1+0-:1] = 1'h0;
-        player1commap[(i)*14+(j)*1+0-:1] = 1'h0;
-        player2ownmap[(i)*14+(j)*1+0-:1] = 1'h0;
-        player2commap[(i)*14+(j)*1+0-:1] = 1'h0;
-      end
-    end
-    M_p1ownmap_rst = rst;
-    M_p1ownmap_clk = clk;
-    M_p1ownmap_status = player1ownmap;
-    player1ownc = M_p1ownmap_allc;
-    player1ownr = M_p1ownmap_allr;
-    M_p1commap_rst = rst;
-    M_p1commap_clk = clk;
-    M_p1commap_status = player1commap;
-    player1comc = M_p1commap_allc;
-    player1comr = M_p1commap_allr;
-    M_p2ownmap_rst = rst;
-    M_p2ownmap_clk = clk;
-    M_p2ownmap_status = player2ownmap;
-    player2ownc = M_p2ownmap_allc;
-    player2ownr = M_p2ownmap_allr;
-    M_p2commap_rst = rst;
-    M_p2commap_clk = clk;
-    M_p2commap_status = player2commap;
-    player2comc = M_p2commap_allc;
-    player2comr = M_p2commap_allr;
-    player1ownc = 10'h000;
-    player1ownr = 14'h0000;
-    player2ownc = 10'h000;
-    player2ownr = 14'h0000;
-    player1comc = 10'h000;
-    player1comr = 14'h0000;
-    player2comc = 10'h000;
-    player2comr = 14'h0000;
-    p1pc[0+0-:1] = player1ownc[0+0-:1];
-    p1pc[1+0-:1] = player1ownc[2+0-:1];
-    p1pc[2+0-:1] = player1ownc[4+0-:1];
-    p1pc[3+0-:1] = player1ownc[6+0-:1];
-    p1pc[4+0-:1] = player1ownc[8+0-:1];
-    p1pr[0+0-:1] = player1ownr[0+0-:1];
-    p1pr[1+0-:1] = player1ownr[2+0-:1];
-    p1pr[2+0-:1] = player1ownr[4+0-:1];
-    p1pr[3+0-:1] = player1ownr[6+0-:1];
-    p1pr[4+0-:1] = player1ownr[8+0-:1];
-    p1pr[5+0-:1] = player1ownr[10+0-:1];
-    p1pr[6+0-:1] = player1ownr[12+0-:1];
-    p2pc[0+0-:1] = player2ownc[0+0-:1];
-    p2pc[1+0-:1] = player2ownc[2+0-:1];
-    p2pc[2+0-:1] = player2ownc[4+0-:1];
-    p2pc[3+0-:1] = player2ownc[6+0-:1];
-    p2pc[4+0-:1] = player2ownc[8+0-:1];
-    p2pr[0+0-:1] = player2ownr[0+0-:1];
-    p2pr[1+0-:1] = player2ownr[2+0-:1];
-    p2pr[2+0-:1] = player2ownr[4+0-:1];
-    p2pr[3+0-:1] = player2ownr[6+0-:1];
-    p2pr[4+0-:1] = player2ownr[8+0-:1];
-    p2pr[5+0-:1] = player2ownr[10+0-:1];
-    p2pr[6+0-:1] = player2ownr[12+0-:1];
-    p1rc = player1comc;
-    p1rr = player1comr;
-    p2rc = player2comc;
-    p2rr = player2comr;
+    move = {3'h7{M_counter_q[10+0-:1]}};
+    p1sc = M_dm1_greenc;
+    p1sr = M_dm1_greenr;
+    p1ogc = 1'h0;
+    p1ogr = 1'h0;
+    p1orc = 1'h0;
+    p1orr = move;
+    p2sc = 1'h0;
+    p2sr = move;
+    p2ogc = 1'h0;
+    p2ogr = 1'h0;
+    p2orc = 1'h0;
+    p2orr = move;
+    p1own = 105'h000000000000000000000000000;
+    p1opp = 105'h000000000000000000000000000;
+    p2own = 105'h000000000000000000000000000;
+    p2opp = 105'h000000000000000000000000000;
+    p1own[63+12+2-:3] = 3'h1;
+    p1own[84+18+2-:3] = 3'h1;
+    p1own[21+6+2-:3] = 3'h4;
+    p1own[42+3+2-:3] = 3'h4;
+    M_dm1_activate = 1'h1;
+    M_dm1_confirmed = p1own;
+    M_dm1_tempc = 5'h00;
+    M_dm1_tempr = 7'h00;
+    M_counter_d = M_counter_q + 1'h1;
   end
+  
+  always @(posedge clk) begin
+    if (rst == 1'b1) begin
+      M_counter_q <= 1'h0;
+    end else begin
+      M_counter_q <= M_counter_d;
+    end
+  end
+  
 endmodule
