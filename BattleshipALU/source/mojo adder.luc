@@ -1,0 +1,36 @@
+module mojo_adder (
+    	input a[8],
+	    input b[8],
+	    input alufn[6],
+	    output sum[8],
+    output z,
+    output n,
+    output v
+ ) 
+	{
+  sig summ[8];
+		always {
+		case(alufn[0]) {
+		1: summ = a - b;
+	
+		0: summ = a + b;
+  
+   default: summ = 8b00000000;
+		}
+    
+    if (summ==8b0000000) {
+    z = 1;
+    }
+    else {
+    z = 0;
+    }
+    
+    n = summ[7];
+    
+    //if(summ > 255) v = 1;
+    //else v = 0;
+    
+    v = (a[7] & (b[7]^alufn[0]) & (~summ[7])) | ((~a[7]) & (~(b[7]^alufn[0])) & (summ[7])); //^ - XOR, ~ - NOT
+    sum = summ;
+		}
+	}

@@ -1,0 +1,17 @@
+module bit_checker (
+    input out[8],
+    input actual_out[8],
+    output io_led[8]
+    
+  ) {
+  var i; //to iterate through bit 1 to bit 8
+  always {
+  
+  io_led = 8b00000000;
+  for (i=0; i < 8 ; i++){
+    if (out[i] != actual_out[i]){
+    io_led[i] = 1;
+  }
+}
+}
+}

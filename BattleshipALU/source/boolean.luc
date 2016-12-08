@@ -1,0 +1,27 @@
+module boolean (
+    input alufn[6],
+    input a[8],  
+    input b[8],  
+    output boole[8]
+    ) 
+  
+  {
+  var i;   
+  
+  always {
+    for (i=0; i<8; i++){ //for 8-bits   
+     
+      if (a[i] ==0 && b[i] == 0){
+      boole[i] = alufn[0];
+      }
+      else if (a[i] == 0 && b[i] == 1){
+      boole[i] = alufn[1];
+      }
+      else if (a[i]==1 && b[i] ==0){
+      boole[i]= alufn[2];
+      }
+      else 
+      boole[i] = alufn[3];
+      }//for
+  }
+}

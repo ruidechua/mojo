@@ -1,94 +1,101 @@
 module dotMatrix (
     input clk,  // clock
     input rst,  // reset
-    input status[10][14],
-    output  allc[10],
-    output allr[14]
+    input confirmed[5][7],
+    input tempc[5],
+    input tempr[7],
+    input activate,
+    output greenc[5],
+    output greenr[7],
+    output redc[5],
+    output redr[7]
 
   ) 
   
    {
   
+  //boolean bool;
+  
   
   var i;
 
-  fsm row(.clk(clk), #INIT(ONER)) = {ONER, TWOR, THREER, FOURR, FIVER,ONEG, TWOG, THREEG, FOURG, FIVEG};
+  fsm row(.clk(clk), #INIT(ONER)) = {ONER, TWOR, THREER, FOURR, FIVER,ONEG, TWOG, THREEG, FOURG, FIVEG };
   
   always {
-
+    //bool.alufn = 8b1000;
+    greenc = 0;
+    greenr = 5b11111;
+    redc = 0;
+    redr = 5b11111;
     
-    case(row.q){
-      row.ONER: allr = 1;
-        for (i=0; i <14; i++){
-          if(status[0][i] ==1)allc[i] = 1;
-          else allc[i] = 0;
+    if (activate){
+          case(row.q){
+            row.ONEG: greenr[0] = 0;
+                      for( i = 0; i<7; i++){
+                          if(confirmed[0][i] == 1) greenc[i] = 1;
+                      }
+                      if(tempr[0] == 1)
+                        for(i = 0; i<7; i++)
+                            if(tempc[i] == 1) greenc[i] = 1;
+                      row.d= row.ONER;
+            row.ONER: redr[0] = 0;
+                      for( i = 0; i<7; i++){
+                          if(confirmed[0][i] == 2) redc[i] = 1;
+                      }
+                      row.d= row.TWOG;
+            row.TWOG: greenr[1] = 0;
+                      for( i = 0; i<7; i++){
+                          if(confirmed[1][i] == 1) greenc[i] = 1;
+                      }
+                      if(tempr[1] == 1)
+                        for(i = 0; i<7; i++)
+                            if(tempc[i] == 1) greenc[i] = 1;
+                      row.d= row.TWOR;
+            row.TWOR: redr[1] = 0;
+                      for( i = 0; i<7; i++){
+                          if(confirmed[1][i] == 2) redc[i] = 1;
+                      }
+                      row.d= row.THREEG;
+            row.THREEG: greenr[2] = 0;
+                      for( i = 0; i<7; i++){
+                          if(confirmed[2][i] == 1) greenc[i] = 1;
+                      }
+                      if(tempr[2] == 1)
+                        for(i = 0; i<7; i++)
+                            if(tempc[i] == 1) greenc[i] = 1;        
+                      row.d= row.THREER;
+            row.THREER: redr[2] = 0;
+                      for( i = 0; i<7; i++){
+                          if(confirmed[2][i] == 2) redc[i] = 1;
+                      }
+                      row.d= row.FOURG;
+             row.FOURG: greenr[3] = 0;
+                      for( i = 0; i<7; i++){
+                          if(confirmed[3][i] == 1) greenc[i] = 1;
+                      }
+                      if(tempr[3] == 1)
+                        for(i = 0; i<7; i++)
+                            if(tempc[i] == 1) greenc[i] = 1;
+                      row.d= row.FOURR;
+            row.FOURR: redr[3] = 0;
+                      for( i = 0; i<7; i++){
+                          if(confirmed[3][i] == 2) redc[i] = 1;
+                      }
+                      row.d= row.FIVEG;  
+            row.FIVEG: greenr[4] = 0;
+                      for( i = 0; i<7; i++){
+                          if(confirmed[4][i] == 1) greenc[i] = 1;
+                      }
+                      if(tempr[4] == 1)
+                        for(i = 0; i<7; i++)
+                            if(tempc[i] == 1) greenc[i] = 1;
+                      row.d= row.FIVER;
+            row.FIVER: redr[4] = 0;
+                      for( i = 0; i<7; i++){
+                          if(confirmed[4][i] == 2) redc[i] = 1;
+                      }
+                      row.d= row.ONEG;   
+          }     
         }
-        row.d = row.ONEG;
-
-      row.ONEG: allr = 2;
-        for (i=0; i <14; i++){
-          if(status[1][i] ==1)allc[i] = 1;
-          else allc[i] = 0;
-        }
-        row.d = row.TWOR;
-      row.TWOR: allr = 4;
-        for (i=0; i <14; i++){
-          if(status[2][i] ==1)allc[i] = 1;
-          else allc[i] = 0;
-        }
-        row.d = row.TWOG;
-
-      row.TWOG: allr = 8;
-        for (i=0; i <14; i++){
-          if(status[3][i] ==1)allc[i] = 1;
-          else allc[i] = 0;
-        }
-        row.d = row.THREER;
-      row.THREER: allr = 16;
-        for (i=0; i <14; i++){
-          if(status[4][i] ==1)allc[i] = 1;
-          else allc[i] = 0;
-        }
-        row.d = row.TWOG;
-
-      row.THREEG: allr = 32;
-        for (i=0; i <14; i++){
-          if(status[5][i] ==1)allc[i] = 1;
-          else allc[i] = 0;
-        }
-        row.d = row.FOURR;
-      row.FOURR: allr = 64;
-        for (i=0; i <14; i++){
-          if(status[6][i] ==1)allc[i] = 1;
-          else allc[i] = 0;
-        }
-        row.d = row.FOURG;
-
-      row.FOURG: allr = 128;
-        for (i=0; i <14; i++){
-          if(status[7][i] ==1)allc[i] = 1;
-          else allc[i] = 0;
-        }
-        row.d = row.FIVER;        
-      row.FIVER: allr = 256;
-        for (i=0; i <14; i++){
-          if(status[8][i] ==1)allc[i] = 1;
-          else allc[i] = 0;
-        }
-        row.d = row.FOURG;
-
-      row.FIVEG: allr = 512;
-        for (i=0; i <14; i++){
-          if(status[7][i] ==1)allc[i] = 1;
-          else allc[i] = 0;
-        }
-        row.d = row.ONER; 
-    default:
-        allr = 1;
-        allc = 1;
-        row.d = row.ONER;
-
-  }
-      
-  }
+      }
 }
