@@ -5,7 +5,7 @@ C:\Xilinx\14.7\ISE_DS\ISE\.
    "mojo_top_0" is an NCD, version 3.2, device xc6slx9, package tqg144, speed -2
 Opened constraints file mojo_top_0.pcf.
 
-Thu Dec 08 22:22:01 2016
+Fri Dec 09 01:12:57 2016
 
 C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\bitgen.exe -g Binary:Yes -g Compress -w -intstyle pa mojo_top_0_routed.ncd mojo_top_0.bit mojo_top_0.pcf 
 
@@ -130,6 +130,8 @@ There were 1 CONFIG constraint(s) processed from mojo_top_0.pcf.
 
 Running DRC.
 WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp
+   p1sc[0]_PULLUP is set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp
    p1sc[1]_PULLUP is set but the tri state is not configured. 
 WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp
    p1sc[2]_PULLUP is set but the tri state is not configured. 
@@ -138,11 +140,59 @@ WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp
 WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp
    p1sc[4]_PULLUP is set but the tri state is not configured. 
 WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp
-   p1sc[0]_PULLUP is set but the tri state is not configured. 
-DRC detected 0 errors and 5 warnings.  Please see the previously displayed
+   p2orc[0]_PULLUP is set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp
+   p2orc[1]_PULLUP is set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp
+   p2orc[2]_PULLUP is set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp
+   p2orc[3]_PULLUP is set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp
+   p2orc[4]_PULLUP is set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp
+   p2sc[0]_PULLUP is set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp
+   p2sc[1]_PULLUP is set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp
+   p2sc[2]_PULLUP is set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp
+   p2sc[3]_PULLUP is set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp
+   p2ogc[0]_PULLUP is set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp
+   p2sc[4]_PULLUP is set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp
+   p2ogc[1]_PULLUP is set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp
+   p2ogc[2]_PULLUP is set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp
+   p2ogc[3]_PULLUP is set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp
+   p2ogc[4]_PULLUP is set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp
+   p1orc[0]_PULLUP is set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp
+   p1orc[1]_PULLUP is set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp
+   p1orc[2]_PULLUP is set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp
+   p1orc[3]_PULLUP is set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp
+   p1orc[4]_PULLUP is set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp
+   p1ogc[0]_PULLUP is set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp
+   p1ogc[1]_PULLUP is set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp
+   p1ogc[2]_PULLUP is set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp
+   p1ogc[3]_PULLUP is set but the tri state is not configured. 
+WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp
+   p1ogc[4]_PULLUP is set but the tri state is not configured. 
+DRC detected 0 errors and 30 warnings.  Please see the previously displayed
 individual error or warning messages for more details.
 Creating bit map...
 Saving bit stream in "mojo_top_0.bit".
-Bitstream compression saved 1460336 bits.
+Bitstream compression saved 1351936 bits.
 Saving bit stream in "mojo_top_0.bin".
 Bitstream generation is complete.

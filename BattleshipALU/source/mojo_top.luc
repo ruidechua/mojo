@@ -36,21 +36,68 @@ module mojo_top (
   ) {
   
   sig rst;                  // reset signal
-  sig p1own[5][7][3], p1opp[5][7][3];
-  sig p2own[5][7][3], p2opp[5][7][3];
-  sig move[7];
-  dotMatrix dm1(.clk(clk), .rst(rst));
+  sig p1self[5][7][3], p1opp[5][7][3];
+  sig p2self[5][7][3], p2opp[5][7][3];
+  
+  dotMatrix dmP1s(.clk(clk), .rst(rst));
+  dotMatrix dmP1o(.clk(clk), .rst(rst));
+  dotMatrix dmP2s(.clk(clk), .rst(rst));
+  dotMatrix dmP2o(.clk(clk), .rst(rst));
+  
   var i,j;
 
-   dff counter[25](.clk(clk), .rst(rst));
   .clk(clk) {
     // The reset conditioner is used to synchronize the reset signal to the FPGA
     // clock. This ensures the entire FPGA comes out of reset at the same time.
+    
+    edge_detector edge_detectorP1up(#RISE(1), #FALL(0)); //edge detector
+    button_conditioner button_condP1up; //debounce and metastability
+    
+    edge_detector edge_detectorP1down(#RISE(1), #FALL(0));
+    button_conditioner button_condP1down;
+    
+    edge_detector edge_detectorP1left(#RISE(1), #FALL(0));
+    button_conditioner button_condP1left;
+    
+    edge_detector edge_detectorP1right(#RISE(1), #FALL(0));
+    button_conditioner button_condP1right;
+    
+    edge_detector edge_detectorP1enter(#RISE(1), #FALL(0));
+    button_conditioner button_condP1enter;
+    
+    edge_detector edge_detectorP2up(#RISE(1), #FALL(0));
+    button_conditioner button_condP2up;
+    
+    edge_detector edge_detectorP2down(#RISE(1), #FALL(0));
+    button_conditioner button_condP2down;
+    
+    edge_detector edge_detectorP2left(#RISE(1), #FALL(0));
+    button_conditioner button_condP2left;
+    
+    edge_detector edge_detectorP2right(#RISE(1), #FALL(0));
+    button_conditioner button_condP2right;
+    
+    edge_detector edge_detectorP2enter(#RISE(1), #FALL(0));
+    button_conditioner button_condP2enter;
+
     reset_conditioner reset_cond;
   }
   .rst(rst){
+      dff p1sdff[5][7][3](.clk(clk));
+      dff p1odff[5][7][3](.clk(clk));
+      dff p2sdff[5][7][3](.clk(clk));
+      dff p2odff[5][7][3](.clk(clk));
     
+      dff p1_blobs[2](.clk(clk));
+      dff p2_blobs[2](.clk(clk));
+    
+      dff p1_tempc[5](.clk(clk));
+      dff p1_tempr[7](.clk(clk));
+      dff p2_tempc[5](.clk(clk));
+      dff p2_tempr[7](.clk(clk));
   }
+  
+  
   always {
     reset_cond.in = ~rst_n; // input raw inverted reset signal
     rst = reset_cond.out;   // conditioned reset
@@ -60,38 +107,83 @@ module mojo_top (
     spi_channel = bzzzz;    // not using flags
     avr_rx = bz;            // not using serial port
     
-        
-    move = 7x{counter.q[10]};
-    p1sc = dm1.greenc;
-    p1sr = dm1.greenr;
-    p1ogc= 0; 
-    p1ogr= 0;
-    p1orc = 0;
-    p1orr = move;
-    p2sc = 0;
-    p2sr= move;
-    p2ogc= 0;
-    p2ogr= 0 ;
-    p2orc= 0;
-    p2orr= move;
-    p1own = 5x{{7x{{3b000}}}};
-    p1opp = 5x{{7x{{3b000}}}};
-    p2own = 5x{{7x{{3b000}}}};
-    p2opp = 5x{{7x{{3b000}}}};
+    button_condP1up.in = p1Up;
+    edge_detectorP1up.in = button_condP1up.out;
     
-    p1own[3][4] = 3b001;
-    p1own[4][6] = 3b001;
-    p1own[1][2] = 3b100;
-    p1own[2][1] = 3b100;
-    
-    dm1.activate = 1;
-    dm1.confirmed = p1own;
-    dm1.tempc = 5b00000;
-    dm1.tempr = 7b0000000;
-    
-    
-    counter.d = counter.q + 1;
-      
+    button_condP1down.in = p1Dn;
+    edge_detectorP1down.in = button_condP1down.out;
 
+    button_condP1left.in = p1left;
+    edge_detectorP1left.in = button_condP1left.out;
+
+    button_condP1right.in = p1right;
+    edge_detectorP1right.in = button_condP1right.out;
+
+    button_condP1enter.in = p1Etr;
+    edge_detectorP1enter.in = button_condP1enter.out;
+
+    button_condP2up.in = p2Up;
+    edge_detectorP2up.in = button_condP2up.out;
+    
+    button_condP2down.in = p2Dn;
+    edge_detectorP2down.in = button_condP2down.out;
+
+    button_condP2left.in = p2Lft;
+    edge_detectorP2left.in = button_condP2left.out;
+
+    button_condP2right.in = p2Rgt;
+    edge_detectorP2right.in = button_condP2right.out;
+
+    button_condP2enter.in = p2Etr;
+    edge_detectorP2enter.in = button_condP2enter.out;
+
+
+    p1sc = dmP1s.greenc;
+    p1sr = dmP1s.greenr;
+    p1ogc= dmP1o.greenc;
+    p1ogr= dmP1o.greenr;
+    p1orc = dmP1o.redc;
+    p1orr = dmP1o.redr;
+    p2sc = dmP2s.greenc;
+    p2sr= dmP2s.greenr;
+    p2ogc= dmP2o.greenc;
+    p2ogr= dmP2o.greenr;
+    p2orc= dmP2o.redc;
+    p2orr= dmP2o.redr;
+    
+    //p1self = 5x{{7x{{3b000}}}};
+    //p1opp = 5x{{7x{{3b000}}}};
+    //p2self = 5x{{7x{{3b000}}}};
+    //p2opp = 5x{{7x{{3b000}}}};
+    
+    p1self = p1sdff.q;
+    p1opp = p1odff.q;
+    p2self = p2sdff.q;
+    p2opp = p2odff.q;
+    
+    p1self[3][4] = 1;
+    p1self[4][6] = 1;
+    p1self[1][2] = 4;
+    p1self[2][1] = 4;
+    
+    dmP1s.activate = 1;
+    dmP1s.confirmed = p1self;
+    dmP1s.tempc = 5b00011;
+    dmP1s.tempr = 7b0000011;
+    
+    dmP1o.activate = 1;
+    dmP1o.confirmed = p1opp;
+    dmP1o.tempc = 5b00011;
+    dmP1o.tempr = 7b0000011;
+    
+    dmP2s.activate = 1;
+    dmP2s.confirmed = p2self;
+    dmP2s.tempc = 5b00011;
+    dmP2s.tempr = 7b0000011;
+
+    dmP2o.activate = 1;
+    dmP2o.confirmed = p2opp;
+    dmP2o.tempc = 5b00011;
+    dmP2o.tempr = 7b0000011;
 }
 }

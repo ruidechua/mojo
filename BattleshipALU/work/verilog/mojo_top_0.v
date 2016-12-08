@@ -44,90 +44,408 @@ module mojo_top_0 (
   
   reg rst;
   
-  reg [104:0] p1own;
+  reg [104:0] p1self;
   reg [104:0] p1opp;
   
-  reg [104:0] p2own;
+  reg [104:0] p2self;
   reg [104:0] p2opp;
   
-  reg [6:0] move;
-  
-  wire [5-1:0] M_dm1_greenc;
-  wire [7-1:0] M_dm1_greenr;
-  wire [5-1:0] M_dm1_redc;
-  wire [7-1:0] M_dm1_redr;
-  reg [105-1:0] M_dm1_confirmed;
-  reg [5-1:0] M_dm1_tempc;
-  reg [7-1:0] M_dm1_tempr;
-  reg [1-1:0] M_dm1_activate;
-  dotMatrix_1 dm1 (
+  wire [5-1:0] M_dmP1s_greenc;
+  wire [7-1:0] M_dmP1s_greenr;
+  wire [5-1:0] M_dmP1s_redc;
+  wire [7-1:0] M_dmP1s_redr;
+  reg [105-1:0] M_dmP1s_confirmed;
+  reg [5-1:0] M_dmP1s_tempc;
+  reg [7-1:0] M_dmP1s_tempr;
+  reg [1-1:0] M_dmP1s_activate;
+  dotMatrix_1 dmP1s (
     .clk(clk),
     .rst(rst),
-    .confirmed(M_dm1_confirmed),
-    .tempc(M_dm1_tempc),
-    .tempr(M_dm1_tempr),
-    .activate(M_dm1_activate),
-    .greenc(M_dm1_greenc),
-    .greenr(M_dm1_greenr),
-    .redc(M_dm1_redc),
-    .redr(M_dm1_redr)
+    .confirmed(M_dmP1s_confirmed),
+    .tempc(M_dmP1s_tempc),
+    .tempr(M_dmP1s_tempr),
+    .activate(M_dmP1s_activate),
+    .greenc(M_dmP1s_greenc),
+    .greenr(M_dmP1s_greenr),
+    .redc(M_dmP1s_redc),
+    .redr(M_dmP1s_redr)
+  );
+  
+  wire [5-1:0] M_dmP1o_greenc;
+  wire [7-1:0] M_dmP1o_greenr;
+  wire [5-1:0] M_dmP1o_redc;
+  wire [7-1:0] M_dmP1o_redr;
+  reg [105-1:0] M_dmP1o_confirmed;
+  reg [5-1:0] M_dmP1o_tempc;
+  reg [7-1:0] M_dmP1o_tempr;
+  reg [1-1:0] M_dmP1o_activate;
+  dotMatrix_1 dmP1o (
+    .clk(clk),
+    .rst(rst),
+    .confirmed(M_dmP1o_confirmed),
+    .tempc(M_dmP1o_tempc),
+    .tempr(M_dmP1o_tempr),
+    .activate(M_dmP1o_activate),
+    .greenc(M_dmP1o_greenc),
+    .greenr(M_dmP1o_greenr),
+    .redc(M_dmP1o_redc),
+    .redr(M_dmP1o_redr)
+  );
+  
+  wire [5-1:0] M_dmP2s_greenc;
+  wire [7-1:0] M_dmP2s_greenr;
+  wire [5-1:0] M_dmP2s_redc;
+  wire [7-1:0] M_dmP2s_redr;
+  reg [105-1:0] M_dmP2s_confirmed;
+  reg [5-1:0] M_dmP2s_tempc;
+  reg [7-1:0] M_dmP2s_tempr;
+  reg [1-1:0] M_dmP2s_activate;
+  dotMatrix_1 dmP2s (
+    .clk(clk),
+    .rst(rst),
+    .confirmed(M_dmP2s_confirmed),
+    .tempc(M_dmP2s_tempc),
+    .tempr(M_dmP2s_tempr),
+    .activate(M_dmP2s_activate),
+    .greenc(M_dmP2s_greenc),
+    .greenr(M_dmP2s_greenr),
+    .redc(M_dmP2s_redc),
+    .redr(M_dmP2s_redr)
+  );
+  
+  wire [5-1:0] M_dmP2o_greenc;
+  wire [7-1:0] M_dmP2o_greenr;
+  wire [5-1:0] M_dmP2o_redc;
+  wire [7-1:0] M_dmP2o_redr;
+  reg [105-1:0] M_dmP2o_confirmed;
+  reg [5-1:0] M_dmP2o_tempc;
+  reg [7-1:0] M_dmP2o_tempr;
+  reg [1-1:0] M_dmP2o_activate;
+  dotMatrix_1 dmP2o (
+    .clk(clk),
+    .rst(rst),
+    .confirmed(M_dmP2o_confirmed),
+    .tempc(M_dmP2o_tempc),
+    .tempr(M_dmP2o_tempr),
+    .activate(M_dmP2o_activate),
+    .greenc(M_dmP2o_greenc),
+    .greenr(M_dmP2o_greenr),
+    .redc(M_dmP2o_redc),
+    .redr(M_dmP2o_redr)
   );
   
   integer i;
   integer j;
   
-  reg [24:0] M_counter_d, M_counter_q = 1'h0;
-  
+  wire [1-1:0] M_edge_detectorP1up_out;
+  reg [1-1:0] M_edge_detectorP1up_in;
+  edge_detector_5 edge_detectorP1up (
+    .clk(clk),
+    .in(M_edge_detectorP1up_in),
+    .out(M_edge_detectorP1up_out)
+  );
+  wire [1-1:0] M_button_condP1up_out;
+  reg [1-1:0] M_button_condP1up_in;
+  button_conditioner_6 button_condP1up (
+    .clk(clk),
+    .in(M_button_condP1up_in),
+    .out(M_button_condP1up_out)
+  );
+  wire [1-1:0] M_edge_detectorP1down_out;
+  reg [1-1:0] M_edge_detectorP1down_in;
+  edge_detector_5 edge_detectorP1down (
+    .clk(clk),
+    .in(M_edge_detectorP1down_in),
+    .out(M_edge_detectorP1down_out)
+  );
+  wire [1-1:0] M_button_condP1down_out;
+  reg [1-1:0] M_button_condP1down_in;
+  button_conditioner_6 button_condP1down (
+    .clk(clk),
+    .in(M_button_condP1down_in),
+    .out(M_button_condP1down_out)
+  );
+  wire [1-1:0] M_edge_detectorP1left_out;
+  reg [1-1:0] M_edge_detectorP1left_in;
+  edge_detector_5 edge_detectorP1left (
+    .clk(clk),
+    .in(M_edge_detectorP1left_in),
+    .out(M_edge_detectorP1left_out)
+  );
+  wire [1-1:0] M_button_condP1left_out;
+  reg [1-1:0] M_button_condP1left_in;
+  button_conditioner_6 button_condP1left (
+    .clk(clk),
+    .in(M_button_condP1left_in),
+    .out(M_button_condP1left_out)
+  );
+  wire [1-1:0] M_edge_detectorP1right_out;
+  reg [1-1:0] M_edge_detectorP1right_in;
+  edge_detector_5 edge_detectorP1right (
+    .clk(clk),
+    .in(M_edge_detectorP1right_in),
+    .out(M_edge_detectorP1right_out)
+  );
+  wire [1-1:0] M_button_condP1right_out;
+  reg [1-1:0] M_button_condP1right_in;
+  button_conditioner_6 button_condP1right (
+    .clk(clk),
+    .in(M_button_condP1right_in),
+    .out(M_button_condP1right_out)
+  );
+  wire [1-1:0] M_edge_detectorP1enter_out;
+  reg [1-1:0] M_edge_detectorP1enter_in;
+  edge_detector_5 edge_detectorP1enter (
+    .clk(clk),
+    .in(M_edge_detectorP1enter_in),
+    .out(M_edge_detectorP1enter_out)
+  );
+  wire [1-1:0] M_button_condP1enter_out;
+  reg [1-1:0] M_button_condP1enter_in;
+  button_conditioner_6 button_condP1enter (
+    .clk(clk),
+    .in(M_button_condP1enter_in),
+    .out(M_button_condP1enter_out)
+  );
+  wire [1-1:0] M_edge_detectorP2up_out;
+  reg [1-1:0] M_edge_detectorP2up_in;
+  edge_detector_5 edge_detectorP2up (
+    .clk(clk),
+    .in(M_edge_detectorP2up_in),
+    .out(M_edge_detectorP2up_out)
+  );
+  wire [1-1:0] M_button_condP2up_out;
+  reg [1-1:0] M_button_condP2up_in;
+  button_conditioner_6 button_condP2up (
+    .clk(clk),
+    .in(M_button_condP2up_in),
+    .out(M_button_condP2up_out)
+  );
+  wire [1-1:0] M_edge_detectorP2down_out;
+  reg [1-1:0] M_edge_detectorP2down_in;
+  edge_detector_5 edge_detectorP2down (
+    .clk(clk),
+    .in(M_edge_detectorP2down_in),
+    .out(M_edge_detectorP2down_out)
+  );
+  wire [1-1:0] M_button_condP2down_out;
+  reg [1-1:0] M_button_condP2down_in;
+  button_conditioner_6 button_condP2down (
+    .clk(clk),
+    .in(M_button_condP2down_in),
+    .out(M_button_condP2down_out)
+  );
+  wire [1-1:0] M_edge_detectorP2left_out;
+  reg [1-1:0] M_edge_detectorP2left_in;
+  edge_detector_5 edge_detectorP2left (
+    .clk(clk),
+    .in(M_edge_detectorP2left_in),
+    .out(M_edge_detectorP2left_out)
+  );
+  wire [1-1:0] M_button_condP2left_out;
+  reg [1-1:0] M_button_condP2left_in;
+  button_conditioner_6 button_condP2left (
+    .clk(clk),
+    .in(M_button_condP2left_in),
+    .out(M_button_condP2left_out)
+  );
+  wire [1-1:0] M_edge_detectorP2right_out;
+  reg [1-1:0] M_edge_detectorP2right_in;
+  edge_detector_5 edge_detectorP2right (
+    .clk(clk),
+    .in(M_edge_detectorP2right_in),
+    .out(M_edge_detectorP2right_out)
+  );
+  wire [1-1:0] M_button_condP2right_out;
+  reg [1-1:0] M_button_condP2right_in;
+  button_conditioner_6 button_condP2right (
+    .clk(clk),
+    .in(M_button_condP2right_in),
+    .out(M_button_condP2right_out)
+  );
+  wire [1-1:0] M_edge_detectorP2enter_out;
+  reg [1-1:0] M_edge_detectorP2enter_in;
+  edge_detector_5 edge_detectorP2enter (
+    .clk(clk),
+    .in(M_edge_detectorP2enter_in),
+    .out(M_edge_detectorP2enter_out)
+  );
+  wire [1-1:0] M_button_condP2enter_out;
+  reg [1-1:0] M_button_condP2enter_in;
+  button_conditioner_6 button_condP2enter (
+    .clk(clk),
+    .in(M_button_condP2enter_in),
+    .out(M_button_condP2enter_out)
+  );
   wire [1-1:0] M_reset_cond_out;
   reg [1-1:0] M_reset_cond_in;
-  reset_conditioner_2 reset_cond (
+  reset_conditioner_25 reset_cond (
     .clk(clk),
     .in(M_reset_cond_in),
     .out(M_reset_cond_out)
   );
   
+  reg [104:0] M_p1sdff_d, M_p1sdff_q = 1'h0;
+  reg [104:0] M_p1odff_d, M_p1odff_q = 1'h0;
+  reg [104:0] M_p2sdff_d, M_p2sdff_q = 1'h0;
+  reg [104:0] M_p2odff_d, M_p2odff_q = 1'h0;
+  reg [1:0] M_p1_blobs_d, M_p1_blobs_q = 1'h0;
+  reg [1:0] M_p2_blobs_d, M_p2_blobs_q = 1'h0;
+  reg [4:0] M_p1_tempc_d, M_p1_tempc_q = 1'h0;
+  reg [6:0] M_p1_tempr_d, M_p1_tempr_q = 1'h0;
+  reg [4:0] M_p2_tempc_d, M_p2_tempc_q = 1'h0;
+  reg [6:0] M_p2_tempr_d, M_p2_tempr_q = 1'h0;
   
   always @* begin
-    M_counter_d = M_counter_q;
-    
     M_reset_cond_in = ~rst_n;
     rst = M_reset_cond_out;
     spi_miso = 1'bz;
     spi_channel = 4'bzzzz;
     avr_rx = 1'bz;
-    move = {3'h7{M_counter_q[10+0-:1]}};
-    p1sc = M_dm1_greenc;
-    p1sr = M_dm1_greenr;
-    p1ogc = 1'h0;
-    p1ogr = 1'h0;
-    p1orc = 1'h0;
-    p1orr = move;
-    p2sc = 1'h0;
-    p2sr = move;
-    p2ogc = 1'h0;
-    p2ogr = 1'h0;
-    p2orc = 1'h0;
-    p2orr = move;
-    p1own = 105'h000000000000000000000000000;
-    p1opp = 105'h000000000000000000000000000;
-    p2own = 105'h000000000000000000000000000;
-    p2opp = 105'h000000000000000000000000000;
-    p1own[63+12+2-:3] = 3'h1;
-    p1own[84+18+2-:3] = 3'h1;
-    p1own[21+6+2-:3] = 3'h4;
-    p1own[42+3+2-:3] = 3'h4;
-    M_dm1_activate = 1'h1;
-    M_dm1_confirmed = p1own;
-    M_dm1_tempc = 5'h00;
-    M_dm1_tempr = 7'h00;
-    M_counter_d = M_counter_q + 1'h1;
+    M_button_condP1up_in = p1Up;
+    M_edge_detectorP1up_in = M_button_condP1up_out;
+    M_button_condP1down_in = p1Dn;
+    M_edge_detectorP1down_in = M_button_condP1down_out;
+    M_button_condP1left_in = p1left;
+    M_edge_detectorP1left_in = M_button_condP1left_out;
+    M_button_condP1right_in = p1right;
+    M_edge_detectorP1right_in = M_button_condP1right_out;
+    M_button_condP1enter_in = p1Etr;
+    M_edge_detectorP1enter_in = M_button_condP1enter_out;
+    M_button_condP2up_in = p2Up;
+    M_edge_detectorP2up_in = M_button_condP2up_out;
+    M_button_condP2down_in = p2Dn;
+    M_edge_detectorP2down_in = M_button_condP2down_out;
+    M_button_condP2left_in = p2Lft;
+    M_edge_detectorP2left_in = M_button_condP2left_out;
+    M_button_condP2right_in = p2Rgt;
+    M_edge_detectorP2right_in = M_button_condP2right_out;
+    M_button_condP2enter_in = p2Etr;
+    M_edge_detectorP2enter_in = M_button_condP2enter_out;
+    p1sc = M_dmP1s_greenc;
+    p1sr = M_dmP1s_greenr;
+    p1ogc = M_dmP1o_greenc;
+    p1ogr = M_dmP1o_greenr;
+    p1orc = M_dmP1o_redc;
+    p1orr = M_dmP1o_redr;
+    p2sc = M_dmP2s_greenc;
+    p2sr = M_dmP2s_greenr;
+    p2ogc = M_dmP2o_greenc;
+    p2ogr = M_dmP2o_greenr;
+    p2orc = M_dmP2o_redc;
+    p2orr = M_dmP2o_redr;
+    p1self = M_p1sdff_q;
+    p1opp = M_p1odff_q;
+    p2self = M_p2sdff_q;
+    p2opp = M_p2odff_q;
+    p1self[63+12+2-:3] = 1'h1;
+    p1self[84+18+2-:3] = 1'h1;
+    p1self[21+6+2-:3] = 3'h4;
+    p1self[42+3+2-:3] = 3'h4;
+    M_dmP1s_activate = 1'h1;
+    M_dmP1s_confirmed = p1self;
+    M_dmP1s_tempc = 5'h03;
+    M_dmP1s_tempr = 7'h03;
+    M_dmP1o_activate = 1'h1;
+    M_dmP1o_confirmed = p1opp;
+    M_dmP1o_tempc = 5'h03;
+    M_dmP1o_tempr = 7'h03;
+    M_dmP2s_activate = 1'h1;
+    M_dmP2s_confirmed = p2self;
+    M_dmP2s_tempc = 5'h03;
+    M_dmP2s_tempr = 7'h03;
+    M_dmP2o_activate = 1'h1;
+    M_dmP2o_confirmed = p2opp;
+    M_dmP2o_tempc = 5'h03;
+    M_dmP2o_tempr = 7'h03;
   end
   
   always @(posedge clk) begin
     if (rst == 1'b1) begin
-      M_counter_q <= 1'h0;
+      M_p2sdff_q <= 1'h0;
     end else begin
-      M_counter_q <= M_counter_d;
+      M_p2sdff_q <= M_p2sdff_d;
+    end
+  end
+  
+  
+  always @(posedge clk) begin
+    if (rst == 1'b1) begin
+      M_p2_blobs_q <= 1'h0;
+    end else begin
+      M_p2_blobs_q <= M_p2_blobs_d;
+    end
+  end
+  
+  
+  always @(posedge clk) begin
+    if (rst == 1'b1) begin
+      M_p1_tempr_q <= 1'h0;
+    end else begin
+      M_p1_tempr_q <= M_p1_tempr_d;
+    end
+  end
+  
+  
+  always @(posedge clk) begin
+    if (rst == 1'b1) begin
+      M_p2_tempr_q <= 1'h0;
+    end else begin
+      M_p2_tempr_q <= M_p2_tempr_d;
+    end
+  end
+  
+  
+  always @(posedge clk) begin
+    if (rst == 1'b1) begin
+      M_p1_tempc_q <= 1'h0;
+    end else begin
+      M_p1_tempc_q <= M_p1_tempc_d;
+    end
+  end
+  
+  
+  always @(posedge clk) begin
+    if (rst == 1'b1) begin
+      M_p1_blobs_q <= 1'h0;
+    end else begin
+      M_p1_blobs_q <= M_p1_blobs_d;
+    end
+  end
+  
+  
+  always @(posedge clk) begin
+    if (rst == 1'b1) begin
+      M_p1sdff_q <= 1'h0;
+    end else begin
+      M_p1sdff_q <= M_p1sdff_d;
+    end
+  end
+  
+  
+  always @(posedge clk) begin
+    if (rst == 1'b1) begin
+      M_p2_tempc_q <= 1'h0;
+    end else begin
+      M_p2_tempc_q <= M_p2_tempc_d;
+    end
+  end
+  
+  
+  always @(posedge clk) begin
+    if (rst == 1'b1) begin
+      M_p1odff_q <= 1'h0;
+    end else begin
+      M_p1odff_q <= M_p1odff_d;
+    end
+  end
+  
+  
+  always @(posedge clk) begin
+    if (rst == 1'b1) begin
+      M_p2odff_q <= 1'h0;
+    end else begin
+      M_p2odff_q <= M_p2odff_d;
     end
   end
   

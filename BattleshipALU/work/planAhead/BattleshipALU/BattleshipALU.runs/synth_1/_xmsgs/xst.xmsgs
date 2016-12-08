@@ -5,13 +5,136 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 72: Assignment to <arg fmt="%s" index="1">M_dm1_redc</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 70: Assignment to <arg fmt="%s" index="1">M_dmP1s_redc</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 73: Assignment to <arg fmt="%s" index="1">M_dm1_redr</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 71: Assignment to <arg fmt="%s" index="1">M_dmP1s_redr</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 90: Assignment to <arg fmt="%s" index="1">p1opp</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 112: Assignment to <arg fmt="%s" index="1">M_dmP2s_redc</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 113: Assignment to <arg fmt="%s" index="1">M_dmP2s_redr</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 145: Assignment to <arg fmt="%s" index="1">M_edge_detectorP1up_out</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 159: Assignment to <arg fmt="%s" index="1">M_edge_detectorP1down_out</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 173: Assignment to <arg fmt="%s" index="1">M_edge_detectorP1left_out</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 187: Assignment to <arg fmt="%s" index="1">M_edge_detectorP1right_out</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 201: Assignment to <arg fmt="%s" index="1">M_edge_detectorP1enter_out</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 215: Assignment to <arg fmt="%s" index="1">M_edge_detectorP2up_out</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 229: Assignment to <arg fmt="%s" index="1">M_edge_detectorP2down_out</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 243: Assignment to <arg fmt="%s" index="1">M_edge_detectorP2left_out</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 257: Assignment to <arg fmt="%s" index="1">M_edge_detectorP2right_out</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 271: Assignment to <arg fmt="%s" index="1">M_edge_detectorP2enter_out</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 372: Assignment to <arg fmt="%s" index="1">M_p2_blobs_q</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 381: Assignment to <arg fmt="%s" index="1">M_p1_tempr_q</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 390: Assignment to <arg fmt="%s" index="1">M_p2_tempr_q</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 399: Assignment to <arg fmt="%s" index="1">M_p1_tempc_q</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 408: Assignment to <arg fmt="%s" index="1">M_p1_blobs_q</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 426: Assignment to <arg fmt="%s" index="1">M_p2_tempc_q</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="634" delta="new" >"C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 288: Net &lt;<arg fmt="%s" index="1">M_p1sdff_d[104]</arg>&gt; does not have a driver.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="634" delta="new" >"C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 289: Net &lt;<arg fmt="%s" index="1">M_p1odff_d[104]</arg>&gt; does not have a driver.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="634" delta="new" >"C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 290: Net &lt;<arg fmt="%s" index="1">M_p2sdff_d[104]</arg>&gt; does not have a driver.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="634" delta="new" >"C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 291: Net &lt;<arg fmt="%s" index="1">M_p2odff_d[104]</arg>&gt; does not have a driver.
+</msg>
+
+<msg type="warning" file="Xst" num="2972" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%d" index="2">142</arg>. All outputs of instance &lt;<arg fmt="%s" index="3">edge_detectorP1up</arg>&gt; of block &lt;<arg fmt="%s" index="4">edge_detector_5</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="5">mojo_top_0</arg>&gt;. Underlying logic will be removed.
+</msg>
+
+<msg type="warning" file="Xst" num="2972" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%d" index="2">149</arg>. All outputs of instance &lt;<arg fmt="%s" index="3">button_condP1up</arg>&gt; of block &lt;<arg fmt="%s" index="4">button_conditioner_6</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="5">mojo_top_0</arg>&gt;. Underlying logic will be removed.
+</msg>
+
+<msg type="warning" file="Xst" num="2972" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%d" index="2">156</arg>. All outputs of instance &lt;<arg fmt="%s" index="3">edge_detectorP1down</arg>&gt; of block &lt;<arg fmt="%s" index="4">edge_detector_5</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="5">mojo_top_0</arg>&gt;. Underlying logic will be removed.
+</msg>
+
+<msg type="warning" file="Xst" num="2972" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%d" index="2">163</arg>. All outputs of instance &lt;<arg fmt="%s" index="3">button_condP1down</arg>&gt; of block &lt;<arg fmt="%s" index="4">button_conditioner_6</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="5">mojo_top_0</arg>&gt;. Underlying logic will be removed.
+</msg>
+
+<msg type="warning" file="Xst" num="2972" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%d" index="2">170</arg>. All outputs of instance &lt;<arg fmt="%s" index="3">edge_detectorP1left</arg>&gt; of block &lt;<arg fmt="%s" index="4">edge_detector_5</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="5">mojo_top_0</arg>&gt;. Underlying logic will be removed.
+</msg>
+
+<msg type="warning" file="Xst" num="2972" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%d" index="2">177</arg>. All outputs of instance &lt;<arg fmt="%s" index="3">button_condP1left</arg>&gt; of block &lt;<arg fmt="%s" index="4">button_conditioner_6</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="5">mojo_top_0</arg>&gt;. Underlying logic will be removed.
+</msg>
+
+<msg type="warning" file="Xst" num="2972" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%d" index="2">184</arg>. All outputs of instance &lt;<arg fmt="%s" index="3">edge_detectorP1right</arg>&gt; of block &lt;<arg fmt="%s" index="4">edge_detector_5</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="5">mojo_top_0</arg>&gt;. Underlying logic will be removed.
+</msg>
+
+<msg type="warning" file="Xst" num="2972" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%d" index="2">191</arg>. All outputs of instance &lt;<arg fmt="%s" index="3">button_condP1right</arg>&gt; of block &lt;<arg fmt="%s" index="4">button_conditioner_6</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="5">mojo_top_0</arg>&gt;. Underlying logic will be removed.
+</msg>
+
+<msg type="warning" file="Xst" num="2972" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%d" index="2">198</arg>. All outputs of instance &lt;<arg fmt="%s" index="3">edge_detectorP1enter</arg>&gt; of block &lt;<arg fmt="%s" index="4">edge_detector_5</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="5">mojo_top_0</arg>&gt;. Underlying logic will be removed.
+</msg>
+
+<msg type="warning" file="Xst" num="2972" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%d" index="2">205</arg>. All outputs of instance &lt;<arg fmt="%s" index="3">button_condP1enter</arg>&gt; of block &lt;<arg fmt="%s" index="4">button_conditioner_6</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="5">mojo_top_0</arg>&gt;. Underlying logic will be removed.
+</msg>
+
+<msg type="warning" file="Xst" num="2972" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%d" index="2">212</arg>. All outputs of instance &lt;<arg fmt="%s" index="3">edge_detectorP2up</arg>&gt; of block &lt;<arg fmt="%s" index="4">edge_detector_5</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="5">mojo_top_0</arg>&gt;. Underlying logic will be removed.
+</msg>
+
+<msg type="warning" file="Xst" num="2972" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%d" index="2">219</arg>. All outputs of instance &lt;<arg fmt="%s" index="3">button_condP2up</arg>&gt; of block &lt;<arg fmt="%s" index="4">button_conditioner_6</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="5">mojo_top_0</arg>&gt;. Underlying logic will be removed.
+</msg>
+
+<msg type="warning" file="Xst" num="2972" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%d" index="2">226</arg>. All outputs of instance &lt;<arg fmt="%s" index="3">edge_detectorP2down</arg>&gt; of block &lt;<arg fmt="%s" index="4">edge_detector_5</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="5">mojo_top_0</arg>&gt;. Underlying logic will be removed.
+</msg>
+
+<msg type="warning" file="Xst" num="2972" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%d" index="2">233</arg>. All outputs of instance &lt;<arg fmt="%s" index="3">button_condP2down</arg>&gt; of block &lt;<arg fmt="%s" index="4">button_conditioner_6</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="5">mojo_top_0</arg>&gt;. Underlying logic will be removed.
+</msg>
+
+<msg type="warning" file="Xst" num="2972" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%d" index="2">240</arg>. All outputs of instance &lt;<arg fmt="%s" index="3">edge_detectorP2left</arg>&gt; of block &lt;<arg fmt="%s" index="4">edge_detector_5</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="5">mojo_top_0</arg>&gt;. Underlying logic will be removed.
+</msg>
+
+<msg type="warning" file="Xst" num="2972" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%d" index="2">247</arg>. All outputs of instance &lt;<arg fmt="%s" index="3">button_condP2left</arg>&gt; of block &lt;<arg fmt="%s" index="4">button_conditioner_6</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="5">mojo_top_0</arg>&gt;. Underlying logic will be removed.
+</msg>
+
+<msg type="warning" file="Xst" num="2972" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%d" index="2">254</arg>. All outputs of instance &lt;<arg fmt="%s" index="3">edge_detectorP2right</arg>&gt; of block &lt;<arg fmt="%s" index="4">edge_detector_5</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="5">mojo_top_0</arg>&gt;. Underlying logic will be removed.
+</msg>
+
+<msg type="warning" file="Xst" num="2972" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%d" index="2">261</arg>. All outputs of instance &lt;<arg fmt="%s" index="3">button_condP2right</arg>&gt; of block &lt;<arg fmt="%s" index="4">button_conditioner_6</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="5">mojo_top_0</arg>&gt;. Underlying logic will be removed.
+</msg>
+
+<msg type="warning" file="Xst" num="2972" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%d" index="2">268</arg>. All outputs of instance &lt;<arg fmt="%s" index="3">edge_detectorP2enter</arg>&gt; of block &lt;<arg fmt="%s" index="4">edge_detector_5</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="5">mojo_top_0</arg>&gt;. Underlying logic will be removed.
+</msg>
+
+<msg type="warning" file="Xst" num="2972" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%d" index="2">275</arg>. All outputs of instance &lt;<arg fmt="%s" index="3">button_condP2enter</arg>&gt; of block &lt;<arg fmt="%s" index="4">button_conditioner_6</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="5">mojo_top_0</arg>&gt;. Underlying logic will be removed.
 </msg>
 
 <msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">cclk</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
@@ -32,90 +155,258 @@
 <msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">avr_rx_busy</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">p1left</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%s" index="2">61</arg>: Output port &lt;<arg fmt="%s" index="3">redc</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">dmP1s</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">p1right</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%s" index="2">61</arg>: Output port &lt;<arg fmt="%s" index="3">redr</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">dmP1s</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">p1Up</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%s" index="2">103</arg>: Output port &lt;<arg fmt="%s" index="3">redc</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">dmP2s</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">p1Dn</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%s" index="2">103</arg>: Output port &lt;<arg fmt="%s" index="3">redr</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">dmP2s</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">p1Etr</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%s" index="2">142</arg>: Output port &lt;<arg fmt="%s" index="3">out</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">edge_detectorP1up</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">p2Lft</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%s" index="2">156</arg>: Output port &lt;<arg fmt="%s" index="3">out</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">edge_detectorP1down</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">p2Rgt</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%s" index="2">170</arg>: Output port &lt;<arg fmt="%s" index="3">out</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">edge_detectorP1left</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">p2Up</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%s" index="2">184</arg>: Output port &lt;<arg fmt="%s" index="3">out</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">edge_detectorP1right</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">p2Dn</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%s" index="2">198</arg>: Output port &lt;<arg fmt="%s" index="3">out</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">edge_detectorP1enter</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">p2Etr</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%s" index="2">212</arg>: Output port &lt;<arg fmt="%s" index="3">out</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">edge_detectorP2up</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%s" index="2">63</arg>: Output port &lt;<arg fmt="%s" index="3">redc</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">dm1</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%s" index="2">226</arg>: Output port &lt;<arg fmt="%s" index="3">out</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">edge_detectorP2down</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%s" index="2">63</arg>: Output port &lt;<arg fmt="%s" index="3">redr</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">dm1</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%s" index="2">240</arg>: Output port &lt;<arg fmt="%s" index="3">out</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">edge_detectorP2left</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="2146" delta="new" >In block &lt;<arg fmt="%s" index="1">mojo_top_0</arg>&gt;, <arg fmt="%s" index="2">Counter</arg> &lt;<arg fmt="%s" index="3">M_counter_q</arg>&gt; </msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dm1/M_counter_q_9</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%s" index="2">254</arg>: Output port &lt;<arg fmt="%s" index="3">out</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">edge_detectorP2right</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dm1/M_counter_q_10</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/Chua/Documents/mojo/BattleshipALU/work/planAhead/BattleshipALU/BattleshipALU.srcs/sources_1/imports/verilog/mojo_top_0.v</arg>&quot; line <arg fmt="%s" index="2">268</arg>: Output port &lt;<arg fmt="%s" index="3">out</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">edge_detectorP2enter</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dm1/M_counter_q_11</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+<msg type="warning" file="Xst" num="653" delta="new" >Signal &lt;<arg fmt="%s" index="1">M_p1sdff_d</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dm1/M_counter_q_12</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+<msg type="warning" file="Xst" num="653" delta="new" >Signal &lt;<arg fmt="%s" index="1">M_p1odff_d</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dm1/M_counter_q_13</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+<msg type="warning" file="Xst" num="653" delta="new" >Signal &lt;<arg fmt="%s" index="1">M_p2sdff_d</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dm1/M_counter_q_14</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+<msg type="warning" file="Xst" num="653" delta="new" >Signal &lt;<arg fmt="%s" index="1">M_p2odff_d</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dm1/M_counter_q_15</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+<msg type="warning" file="Xst" num="2404" delta="new" > FFs/Latches &lt;<arg fmt="%s" index="1">M_p2sdff_q</arg>&lt;<arg fmt="%d" index="2">104</arg>:<arg fmt="%d" index="3">0</arg>&gt;&gt; (without init value) have a constant value of <arg fmt="%c" index="4">0</arg> in block &lt;<arg fmt="%s" index="5">mojo_top_0</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dm1/M_counter_q_16</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+<msg type="warning" file="Xst" num="2404" delta="new" > FFs/Latches &lt;<arg fmt="%s" index="1">M_p1odff_q</arg>&lt;<arg fmt="%d" index="2">104</arg>:<arg fmt="%d" index="3">0</arg>&gt;&gt; (without init value) have a constant value of <arg fmt="%c" index="4">0</arg> in block &lt;<arg fmt="%s" index="5">mojo_top_0</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dm1/M_counter_q_17</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+<msg type="warning" file="Xst" num="2404" delta="new" > FFs/Latches &lt;<arg fmt="%s" index="1">M_p2odff_q</arg>&lt;<arg fmt="%d" index="2">104</arg>:<arg fmt="%d" index="3">0</arg>&gt;&gt; (without init value) have a constant value of <arg fmt="%c" index="4">0</arg> in block &lt;<arg fmt="%s" index="5">mojo_top_0</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dm1/M_counter_q_18</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+<msg type="warning" file="Xst" num="2404" delta="new" > FFs/Latches &lt;<arg fmt="%s" index="1">M_p1sdff_q</arg>&lt;<arg fmt="%d" index="2">92</arg>:<arg fmt="%d" index="3">0</arg>&gt;&gt; (without init value) have a constant value of <arg fmt="%c" index="4">0</arg> in block &lt;<arg fmt="%s" index="5">mojo_top_0</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dm1/M_counter_q_19</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+<msg type="warning" file="Xst" num="1989" delta="new" >Unit &lt;<arg fmt="%s" index="1">mojo_top_0</arg>&gt;: instances &lt;<arg fmt="%s" index="2">dmP1o</arg>&gt;, &lt;<arg fmt="%s" index="3">dmP2o</arg>&gt; of unit &lt;<arg fmt="%s" index="4">dotMatrix_1</arg>&gt; are equivalent, second instance is removed
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dm1/M_counter_q_20</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+<msg type="info" file="Xst" num="2146" delta="new" >In block &lt;<arg fmt="%s" index="1">mojo_top_0</arg>&gt;, <arg fmt="%s" index="2">Counter</arg> &lt;<arg fmt="%s" index="3">dmP2s/M_blinker_q</arg>&gt; </msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP2s/M_counter_q_9</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dm1/M_counter_q_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP2s/M_counter_q_10</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dm1/M_counter_q_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP2s/M_counter_q_11</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dm1/M_counter_q_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP2s/M_counter_q_12</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dm1/M_counter_q_24</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP2s/M_counter_q_13</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP2s/M_counter_q_14</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP2s/M_counter_q_15</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP2s/M_counter_q_16</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP2s/M_counter_q_17</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP2s/M_counter_q_18</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP2s/M_counter_q_19</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP2s/M_counter_q_20</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP2s/M_counter_q_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP2s/M_counter_q_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP2s/M_counter_q_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP2s/M_counter_q_24</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP1o/M_counter_q_9</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP1o/M_counter_q_10</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP1o/M_counter_q_11</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP1o/M_counter_q_12</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP1o/M_counter_q_13</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP1o/M_counter_q_14</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP1o/M_counter_q_15</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP1o/M_counter_q_16</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP1o/M_counter_q_17</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP1o/M_counter_q_18</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP1o/M_counter_q_19</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP1o/M_counter_q_20</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP1o/M_counter_q_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP1o/M_counter_q_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP1o/M_counter_q_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP1o/M_counter_q_24</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP1s/M_counter_q_9</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP1s/M_counter_q_10</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP1s/M_counter_q_11</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP1s/M_counter_q_12</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP1s/M_counter_q_13</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP1s/M_counter_q_14</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP1s/M_counter_q_15</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP1s/M_counter_q_16</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP1s/M_counter_q_17</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP1s/M_counter_q_18</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP1s/M_counter_q_19</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP1s/M_counter_q_20</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP1s/M_counter_q_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP1s/M_counter_q_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP1s/M_counter_q_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">dmP1s/M_counter_q_24</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt;.
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">dmP2s/M_counter_q_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;dmP1o/M_counter_q_0&gt; &lt;dmP1s/M_counter_q_0&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">dmP2s/M_counter_q_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;dmP1o/M_counter_q_1&gt; &lt;dmP1s/M_counter_q_1&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">dmP2s/M_counter_q_2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;dmP1o/M_counter_q_2&gt; &lt;dmP1s/M_counter_q_2&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">dmP2s/M_counter_q_3</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;dmP1o/M_counter_q_3&gt; &lt;dmP1s/M_counter_q_3&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">dmP2s/M_counter_q_4</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;dmP1o/M_counter_q_4&gt; &lt;dmP1s/M_counter_q_4&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">dmP2s/M_counter_q_5</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;dmP1o/M_counter_q_5&gt; &lt;dmP1s/M_counter_q_5&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">dmP2s/M_counter_q_6</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;dmP1o/M_counter_q_6&gt; &lt;dmP1s/M_counter_q_6&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">dmP2s/M_counter_q_7</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;dmP1o/M_counter_q_7&gt; &lt;dmP1s/M_counter_q_7&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">dmP2s/M_counter_q_8</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;dmP1o/M_counter_q_8&gt; &lt;dmP1s/M_counter_q_8&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">dmP2s/M_row_q_FSM_FFd1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;dmP1o/M_row_q_FSM_FFd1&gt; &lt;dmP1s/M_row_q_FSM_FFd1&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">dmP2s/M_row_q_FSM_FFd2</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;dmP1o/M_row_q_FSM_FFd2&gt; &lt;dmP1s/M_row_q_FSM_FFd2&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">dmP2s/M_row_q_FSM_FFd3</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;dmP1o/M_row_q_FSM_FFd3&gt; &lt;dmP1s/M_row_q_FSM_FFd3&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">dmP2s/M_row_q_FSM_FFd4</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top_0</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">2 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;dmP1o/M_row_q_FSM_FFd4&gt; &lt;dmP1s/M_row_q_FSM_FFd4&gt; </arg>
 </msg>
 
 <msg type="info" file="Xst" num="741" delta="new" >HDL ADVISOR - A <arg fmt="%d" index="1">4</arg>-bit shift register was found for signal &lt;<arg fmt="%s" index="2">reset_cond/M_stage_q_3</arg>&gt; and currently occupies <arg fmt="%d" index="3">4</arg> logic cells (<arg fmt="%d" index="4">2</arg> slices). Removing the set/reset logic would take advantage of SRL<arg fmt="%d" index="5">32</arg> (and derived) primitives and reduce this to 1 logic cells (1 slices). Evaluate if the set/reset can be removed for this simple shift register. The majority of simple pipeline structures do not need to be set/reset operationally.

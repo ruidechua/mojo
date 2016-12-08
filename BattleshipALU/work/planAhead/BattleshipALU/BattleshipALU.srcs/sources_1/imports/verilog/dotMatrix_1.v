@@ -55,7 +55,7 @@ module dotMatrix_1 (
         ONEG_row: begin
           greenc[0+0-:1] = 1'h0;
           for (i = 1'h0; i < 3'h7; i = i + 1) begin
-            if (confirmed[0+(i)*3+2-:3] == 3'h1 || confirmed[0+(i)*3+2-:3] == 3'h5) begin
+            if (confirmed[0+(i)*3+2-:3] == 1'h1 || confirmed[0+(i)*3+2-:3] == 3'h5) begin
               greenr[(i)*1+0-:1] = 1'h1;
             end else begin
               if (confirmed[0+(i)*3+2-:3] == 3'h4) begin
@@ -248,15 +248,6 @@ module dotMatrix_1 (
   end
   
   always @(posedge clk) begin
-    if (rst == 1'b1) begin
-      M_counter_q <= 1'h0;
-    end else begin
-      M_counter_q <= M_counter_d;
-    end
-  end
-  
-  
-  always @(posedge clk) begin
     M_row_q <= M_row_d;
   end
   
@@ -266,6 +257,15 @@ module dotMatrix_1 (
       M_blinker_q <= 1'h0;
     end else begin
       M_blinker_q <= M_blinker_d;
+    end
+  end
+  
+  
+  always @(posedge clk) begin
+    if (rst == 1'b1) begin
+      M_counter_q <= 1'h0;
+    end else begin
+      M_counter_q <= M_counter_d;
     end
   end
   
